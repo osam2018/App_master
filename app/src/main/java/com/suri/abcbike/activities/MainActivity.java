@@ -37,8 +37,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.suri.abcbike.R;
 
-
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, OnMapReadyCallback {
+// , OnMapReadyCallback
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected static final String TAG = MainActivity.class.getSimpleName();
 
     private SharedPreferences mPreferences;
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        initCollapsingToolbar();
+        //initCollapsingToolbar();
 
         Intent i = getIntent();
         if (!i.getBooleanExtra("auto",false)){
@@ -70,9 +70,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         FragmentManager fragmentManager = getFragmentManager();
-        MapFragment mapFragment = (MapFragment)fragmentManager
-                .findFragmentById(R.id.map);
-        mapFragment.getMapAsync(this);
+        // MapFragment mapFragment = (MapFragment)fragmentManager.findFragmentById(R.id.map);
+        // mapFragment.getMapAsync(this);
 
 
 
@@ -82,7 +81,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         UserEmail = (TextView) findViewById(R.id.profile_email);
 
         UserName.setText(mPreferences.getString("Name","Save The Color"));
-        UserEmail.setText(mPreferences.getString("Email","Save The Color"));
+        if (mPreferences.getInt("UnitId", -1) == -1) {
+            UserEmail.setText("not set unit");
+        } else {
+            UserEmail.setText("set unit");
+        }
+        // UserEmail.setText(mPreferences.getString("Email","Save The Color"));
 
 
 
@@ -113,8 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -140,7 +143,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
     }
-
+/*
     @Override
     public void onMapReady(final GoogleMap map) {
 
@@ -155,9 +158,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
         map.animateCamera(CameraUpdateFactory.zoomTo(10));
     }
+*/
 
-
-
+/*
     private void initCollapsingToolbar() {
         final CollapsingToolbarLayout collapsingToolbar =
                 (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
@@ -185,7 +188,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
     }
-
+*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -214,12 +217,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         super.onDestroy();
     }
-
+/*
     private int dpToPx(int dp) {
         Resources r = getResources();
         return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
     }
-
+*/
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {

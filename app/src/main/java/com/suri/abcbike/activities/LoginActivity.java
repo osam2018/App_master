@@ -292,7 +292,8 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     editor.putString("Group", json.getJSONObject("data").getString("group"));
                     editor.putString("Rank", json.getJSONObject("data").getString("rank"));
                     editor.putString("Phone", json.getJSONObject("data").getString("phone"));
-                    editor.putString("UsingCar", json.getJSONObject("data").getString("using_car"));
+                    editor.putBoolean("UsingCar", json.getJSONObject("data").getBoolean("using_car"));
+                    editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
                     editor.commit();
 
 
