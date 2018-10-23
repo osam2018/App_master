@@ -6,25 +6,28 @@
     density="hdpi"
     format="10"
     plugin-version="3.2.1"
-    timestamp="1540289232685"
+    timestamp="1540291379390"
     token="-5431712311293613604"
-    verifier="COLD_SWAP_REQUESTED" >
+    verifier="FULL_BUILD_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="5121" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="856" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1822" />
 
     <artifact
         location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+        type="SPLIT" />
+    <artifact
+        location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
@@ -33,16 +36,13 @@
         location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
         type="SPLIT" />
     <artifact
-        location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+        location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-        type="SPLIT" />
-    <artifact
-        location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
         type="SPLIT" />
     <artifact
         location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_6.apk"
@@ -62,10 +62,13 @@
 
     <build
         build-mode="FULL"
-        timestamp="1540289232685"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="1540291379390"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\dep\dependencies.apk"
+            type="SPLIT" />
+        <artifact
+            location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_0.apk"
@@ -74,16 +77,13 @@
             location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_2.apk"
             type="SPLIT" />
         <artifact
-            location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_1.apk"
+            location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_4.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_5.apk"
-            type="SPLIT" />
-        <artifact
-            location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_3.apk"
             type="SPLIT" />
         <artifact
             location="C:\Users\USER\Desktop\carpool\app\build\intermediates\split-apk\debug\slices\slice_6.apk"

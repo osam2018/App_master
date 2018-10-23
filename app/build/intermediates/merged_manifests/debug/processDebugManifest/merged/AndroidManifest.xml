@@ -25,7 +25,6 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:testOnly="true"
         android:theme="@style/AppTheme" >
         <meta-data
             android:name="com.google.android.geo.API_KEY"
@@ -43,7 +42,7 @@
             android:label="@string/title_activity_make_unit" />
         <activity
             android:name="com.suri.abcbike.activities.UnitMemberActivity"
-            android:label="@string/title_activity_unit_member"
+            android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,10 +50,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--
+        <activity
+            android:name="com.suri.abcbike.activities.UnitMemberActivity"
+            android:label="@string/title_activity_unit_member"
+            android:name=".activities.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
         <activity
             android:name="com.suri.abcbike.activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.suri.abcbike.activities.IntroActivity"
             android:label="@string/title_activity_intro"
@@ -62,6 +73,15 @@
         <activity
             android:name="com.suri.abcbike.activities.SignUpActivity"
             android:label="@string/title_activity_sign_up" />
+        <activity
+            android:name="com.suri.abcbike.activities.AddUnitActivity"
+            android:label="@string/title_activity_add_unit"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.suri.abcbike.activities.CarpoolListAtivity"
+            android:label="@string/title_activity_carpool_list_ativity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="com.suri.abcbike.activities.CarpoolMakeActivity" />
 
         <meta-data
             android:name="android.support.VERSION"

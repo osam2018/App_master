@@ -43,7 +43,7 @@
             android:label="@string/title_activity_make_unit" />
         <activity
             android:name="com.suri.abcbike.activities.UnitMemberActivity"
-            android:label="@string/title_activity_unit_member"
+            android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -51,6 +51,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!--
+        <activity
+            android:name="com.suri.abcbike.activities.UnitMemberActivity"
+            android:label="@string/title_activity_unit_member"
+            android:name=".activities.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        -->
         <activity
             android:name="com.suri.abcbike.activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -62,6 +75,10 @@
         <activity
             android:name="com.suri.abcbike.activities.SignUpActivity"
             android:label="@string/title_activity_sign_up" />
+        <activity
+            android:name="com.suri.abcbike.activities.AddUnitActivity"
+            android:label="@string/title_activity_add_unit"
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <meta-data
             android:name="android.support.VERSION"

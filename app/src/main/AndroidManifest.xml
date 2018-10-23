@@ -19,25 +19,24 @@
         <activity
             android:name=".activities.MainActivity"
             android:hardwareAccelerated="true"
-            android:label="@string/app_name"
-             />
+            android:label="@string/app_name" />
         <activity
             android:name=".activities.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name="com.suri.abcbike.activities.makeUnitActivity"
+            android:name=".activities.makeUnitActivity"
             android:label="@string/title_activity_make_unit" />
         <activity
-        android:name="com.suri.abcbike.activities.UnitMemberActivity"
-        android:label="@string/title_activity_add_unit"
-        android:theme="@style/AppTheme.NoActionBar">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
+            android:name=".activities.UnitMemberActivity"
+            android:label="@string/title_activity_add_unit"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-    </activity>
-<!--
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!--
         <activity
             android:name="com.suri.abcbike.activities.UnitMemberActivity"
             android:label="@string/title_activity_unit_member"
@@ -49,12 +48,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
--->
+        -->
         <activity
-            android:name="com.suri.abcbike.activities.SplashActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:name=".activities.SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".activities.IntroActivity"
             android:label="@string/title_activity_intro"
@@ -65,7 +62,12 @@
         <activity
             android:name=".activities.AddUnitActivity"
             android:label="@string/title_activity_add_unit"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".activities.CarpoolListAtivity"
+            android:label="@string/title_activity_carpool_list_ativity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".activities.CarpoolMakeActivity"></activity>
     </application>
 
 </manifest>

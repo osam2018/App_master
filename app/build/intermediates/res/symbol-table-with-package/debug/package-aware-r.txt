@@ -1001,6 +1001,7 @@ id enterAlwaysCollapsed
 id exitUntilCollapsed
 id expand_activities_button
 id expanded_menu
+id fab
 id fill
 id fill_horizontal
 id fill_vertical
@@ -1200,6 +1201,9 @@ layout abc_screen_toolbar
 layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
+layout activity_add_unit
+layout activity_carpool_list_ativity
+layout activity_carpool_make
 layout activity_intro
 layout activity_login
 layout activity_main
@@ -1208,6 +1212,9 @@ layout activity_sign_up
 layout activity_splash
 layout activity_unit_member
 layout app_bar_main
+layout carpool
+layout content_add_unit
+layout content_carpool_list_ativity
 layout content_main
 layout content_unit_member
 layout design_bottom_navigation_item
@@ -1349,12 +1356,13 @@ string section_format
 string sign_out
 string status_bar_notification_info_overflow
 string str_done
+string title_activity_add_unit
+string title_activity_carpool_list_ativity
 string title_activity_intro
 string title_activity_login
 string title_activity_make_unit
 string title_activity_sign_up
 string title_activity_splash
-string title_activity_unit_member
 string unit_name
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
