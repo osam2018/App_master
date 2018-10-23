@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ListView;
 
 import com.suri.abcbike.R;
 
@@ -26,6 +27,10 @@ public class CarpoolListAtivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        ListviewAdapter adapter=new ListviewAdapter();
+        ListView listview=(ListView)findViewById(R.id.carpool_list);
+        listview.setAdapter(adapter);
+        adapter.addItem(new ListviewItem(3,30,"부대","간부 아파트","정태훈",1,4));
     }
 
 }

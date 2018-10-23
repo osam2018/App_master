@@ -964,6 +964,12 @@ id bottom
 id btn_signup
 id buttonPanel
 id cancel_action
+id carpool_end
+id carpool_list
+id carpool_max
+id carpool_poster
+id carpool_start
+id carpool_start_time
 id center
 id center_horizontal
 id center_vertical
@@ -1036,6 +1042,7 @@ id login_form
 id login_progress
 id main_content
 id masked
+id max
 id media_actions
 id message
 id middle
@@ -1069,6 +1076,7 @@ id password_confirm
 id percent
 id phone
 id pin
+id poster
 id profile_email
 id profile_image
 id profile_name
@@ -1122,6 +1130,7 @@ id src_in
 id src_over
 id standard
 id start
+id starttime
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
@@ -1334,6 +1343,11 @@ string error_invalid_password
 string hello_blank_fragment
 string label_unitcategory
 string label_unitname
+string lvItem_end
+string lvItem_max
+string lvItem_poster
+string lvItem_start
+string lvItem_starttime
 string navigation_drawer_close
 string navigation_drawer_open
 string password_toggle_content_description

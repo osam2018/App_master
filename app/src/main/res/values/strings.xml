@@ -63,5 +63,9 @@
 
     <string name="title_activity_add_unit">AddUnitActivity</string>
     <string name="title_activity_carpool_list_ativity">CarpoolListAtivity</string>
-    <string name="lvItem_poster">게시자:</string>
+    <string name="lvItem_poster">게시자 : </string>
+    <string name="lvItem_starttime">출발시간 : </string>
+    <string name="lvItem_max">정원 : </string>
+    <string name="lvItem_start">출발지 : </string>
+    <string name="lvItem_end">도착지 : </string>
 </resources>
