@@ -22,7 +22,7 @@
     <application
         android:allowBackup="true"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
@@ -42,7 +42,7 @@
             android:label="@string/title_activity_make_unit" />
         <activity
             android:name="com.suri.abcbike.activities.UnitMemberActivity"
-            android:label="@string/title_activity_add_unit"
+            android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -79,7 +79,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name="com.suri.abcbike.activities.CarpoolListAtivity"
-            android:label="@string/title_activity_carpool_list_ativity"
+            android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.suri.abcbike.activities.CarpoolMakeActivity" />
 

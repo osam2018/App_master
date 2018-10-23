@@ -108,7 +108,7 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\USER\.gradle\caches\
 	android:label
 		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:12:9-41
 	android:icon
-		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:11:9-43
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:11:9-38
 	android:allowBackup
 		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:10:9-35
 	android:theme
@@ -142,7 +142,7 @@ ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:26:9-2
 activity#com.suri.abcbike.activities.UnitMemberActivity
 ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:29:9-38:20
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:31:13-60
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:31:13-45
 	android:theme
 		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:32:13-56
 	android:name
@@ -188,7 +188,7 @@ ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:62:9-6
 activity#com.suri.abcbike.activities.CarpoolListAtivity
 ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:66:9-69:59
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:68:13-72
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:68:13-60
 	android:theme
 		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:69:13-56
 	android:name
