@@ -296,11 +296,17 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
                     editor.commit();
 
-
+                    if (mPreferences.getInt("UnitId", -1) == -1) {
+                        Intent intent = new Intent(getApplicationContext(), AddUnitActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
                     // launch the HomeActivity and close this one
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+
                 } else {
                     showProgress(false);
                     mPasswordView.requestFocus();
