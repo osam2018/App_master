@@ -1,2 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+
+<resources>
+    <string-array name="unit_head">
+        <item>1야전군사령부</item>
+        <item>2작전사령부</item>
+        <item>3야전군사령부</item>
+        <item>1군단</item>
+        <item>2군단</item>
+        <item>3군단</item>
+        <item>5군단</item>
+        <item>6군단</item>
+        <item>7군단</item>
+        <item>8군단</item>
+        <item>수도군단</item>
+        <item>1사단</item>
+        <item>2사단</item>
+        <item>3사단</item>
+        <item>5사단</item>
+        <item>6사단</item>
+        <item>7사단</item>
+        <item>9사단</item>
+        <item>12사단</item>
+        <item>15사단</item>
+        <item>17사단</item>
+        <item>21사단</item>
+        <item>22사단</item>
+        <item>23사단</item>
+        <item>25사단</item>
+        <item>27사단</item>
+        <item>28사단</item>
+        <item>31사단</item>
+        <item>32사단</item>
+        <item>35사단</item>
+        <item>36사단</item>
+        <item>37사단</item>
+        <item>39사단</item>
+        <item>50사단</item>
+        <item>51사단</item>
+        <item>52사단</item>
+        <item>53사단</item>
+        <item>55사단</item>
+        <item>56사단</item>
+    </string-array>
+</resources>
