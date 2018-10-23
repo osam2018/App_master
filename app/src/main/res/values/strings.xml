@@ -60,5 +60,6 @@
     <string name="title_activity_sign_up">Sign Up</string>
 
     <string name="sign_out">Sign Out</string>
-    <string name="title_activity_unit_member">UnitMemberActivity</string>
+
+    <string name="title_activity_add_unit">AddUnitActivity</string>
 </resources>
