@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -53,6 +54,11 @@ public class SignUpActivity extends AppCompatActivity {
 
     // UI references.
     private EditText mEmailView;
+    private EditText mNameView;
+    private EditText mGroupView;
+    private EditText mRankView;
+    private EditText mPhoneView;
+    private CheckBox mUsingCarView;
     private EditText mPasswordView;
     private EditText mPasswordConfirmView;
     private View mProgressView;
@@ -67,6 +73,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
+        mNameView = (EditText) findViewById(R.id.name);
+        mGroupView = (EditText) findViewById(R.id.group);
+        mRankView = (EditText) findViewById(R.id.rank);
+        mPhoneView = (EditText) findViewById(R.id.phone);
+        mUsingCarView = (CheckBox) findViewById(R.id.using_car);
 
         mPasswordView = (EditText) findViewById(R.id.password);
 
@@ -107,6 +118,11 @@ public class SignUpActivity extends AppCompatActivity {
 
         // Reset errors.
         mEmailView.setError(null);
+        mNameView.setError(null);
+        mGroupView.setError(null);
+        mRankView.setError(null);
+        mPhoneView.setError(null);
+        mUsingCarView.setError(null);
         mPasswordView.setError(null);
         mPasswordConfirmView.setError(null);
 
@@ -114,6 +130,11 @@ public class SignUpActivity extends AppCompatActivity {
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
         String passwordConfirm = mPasswordConfirmView.getText().toString();
+        String name = mNameView.getText().toString();
+        String group = mGroupView.getText().toString();
+        String rank = mRankView.getText().toString();
+        String phone = mPhoneView.getText().toString();
+        Boolean using_car = mUsingCarView.isChecked();
 
         boolean cancel = false;
         View focusView = null;
@@ -161,7 +182,7 @@ public class SignUpActivity extends AppCompatActivity {
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new SignUpTask(this, email, password, passwordConfirm);
+            mAuthTask = new SignUpTask(this, email, name, group, rank, phone,using_car, password, passwordConfirm);
             mAuthTask.execute(mURL);
         }
     }
@@ -215,13 +236,23 @@ public class SignUpActivity extends AppCompatActivity {
     private class SignUpTask extends UrlJsonAsyncTask {
 
         private final String mEmail;
+        private final String mName;
+        private final String mGroup;
+        private final String mRank;
+        private final String mPhone;
+        private final Boolean mUsingCar;
         private final String mPassword;
         private final String mPasswordConfirmation;
 
-        public SignUpTask(Context context, String email, String password, String passwordConfirm) {
+        public SignUpTask(Context context, String email,String  name, String group, String  rank,String  phone, Boolean using_car, String password, String passwordConfirm) {
             super(context);
 
             mEmail = email;
+            mName = name;
+            mGroup = group;
+            mRank = rank;
+            mPhone = phone;
+            mUsingCar = using_car;
             mPassword = password;
             mPasswordConfirmation = passwordConfirm;
         }
@@ -245,6 +276,11 @@ public class SignUpActivity extends AppCompatActivity {
                     // add the user email and password to
                     // the params
                     userObj.put("email", mEmail);
+                    userObj.put("name", mName);
+                    userObj.put("group", mGroup);
+                    userObj.put("rank", mRank);
+                    userObj.put("phone", mPhone);
+                    userObj.put("using_car", mUsingCar);
                     userObj.put("password", mPassword);
                     userObj.put("password_confirmation", mPasswordConfirmation);
                     holder.put("user", userObj);
@@ -288,6 +324,11 @@ public class SignUpActivity extends AppCompatActivity {
                     // the SharedPreferences
                     editor.putString("AuthToken", json.getJSONObject("data").getString("auth_token"));
                     editor.putString("Email", json.getJSONObject("data").getJSONObject("user").getString("email"));
+                    editor.putString("Name", json.getJSONObject("data").getJSONObject("user").getString("name"));
+                    editor.putString("Group", json.getJSONObject("data").getJSONObject("user").getString("group"));
+                    editor.putString("Rank", json.getJSONObject("data").getJSONObject("user").getString("rank"));
+                    editor.putString("Phone", json.getJSONObject("data").getJSONObject("user").getString("phone"));
+                    editor.putString("UsingCar", json.getJSONObject("data").getJSONObject("user").getString("using_car"));
                     editor.commit();
 
                     // launch the HomeActivity and close this one

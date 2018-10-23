@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         UserName = (TextView) findViewById(R.id.profile_name);
         UserEmail = (TextView) findViewById(R.id.profile_email);
 
-        UserName.setText(mPreferences.getString("Email","Save The Color"));
+        UserName.setText(mPreferences.getString("Name","Save The Color"));
         UserEmail.setText(mPreferences.getString("Email","Save The Color"));
 
 
@@ -127,7 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserName = (TextView) header.findViewById(R.id.nav_user_name);
         NavUserEmail = (TextView) header.findViewById(R.id.nav_user_email);
 
-        NavUserName.setText(mPreferences.getString("Email","Save The Color"));
+        NavUserName.setText(mPreferences.getString("Name","Save The Color"));
         NavUserEmail.setText(mPreferences.getString("Email","Save The Color"));
 
 
