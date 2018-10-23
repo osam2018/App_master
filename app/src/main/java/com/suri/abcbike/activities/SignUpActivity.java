@@ -329,12 +329,21 @@ public class SignUpActivity extends AppCompatActivity {
                     editor.putString("Rank", json.getJSONObject("data").getJSONObject("user").getString("rank"));
                     editor.putString("Phone", json.getJSONObject("data").getJSONObject("user").getString("phone"));
                     editor.putString("UsingCar", json.getJSONObject("data").getJSONObject("user").getString("using_car"));
-                    editor.commit();
 
-                    // launch the HomeActivity and close this one
-                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                    startActivity(intent);
-                    finish();
+                    if (json.getJSONObject("data").getJSONObject("user").isNull("unit_id")) {
+                        editor.putInt("UnitId", -1);
+                        editor.apply();
+                        Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        editor.putInt("UnitId", json.getJSONObject("data").getJSONObject("user").getInt("unit_id"));
+                        editor.apply();
+                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+
                 } else {
                     showProgress(false);
                 }

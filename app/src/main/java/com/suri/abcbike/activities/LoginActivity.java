@@ -293,14 +293,16 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     editor.putString("Rank", json.getJSONObject("data").getString("rank"));
                     editor.putString("Phone", json.getJSONObject("data").getString("phone"));
                     editor.putBoolean("UsingCar", json.getJSONObject("data").getBoolean("using_car"));
-                    editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
-                    editor.commit();
 
-                    if (mPreferences.getInt("UnitId", -1) == -1) {
-                        Intent intent = new Intent(getApplicationContext(), AddUnitActivity.class);
+                    if (json.getJSONObject("data").isNull("unit_id")) {
+                        editor.putInt("UnitId", -1);
+                        editor.apply();
+                        Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
+                        editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
+                        editor.apply();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
                         finish();
