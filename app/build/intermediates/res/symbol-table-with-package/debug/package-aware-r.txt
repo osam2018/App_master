@@ -897,6 +897,7 @@ drawable icon_palette
 drawable icon_save
 drawable icon_spoid
 drawable intro
+drawable logo
 drawable navigation_empty_icon
 drawable notification_action_background
 drawable notification_bg
@@ -948,6 +949,7 @@ id action_text
 id actions
 id activity_chooser_view_content
 id add
+id add_unit_button
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1035,6 +1037,7 @@ id login
 id login_form
 id login_progress
 id main_content
+id make_unit_progress
 id masked
 id media_actions
 id message
@@ -1132,7 +1135,16 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
-id textView2
+id textView10
+id textView11
+id textView12
+id textView3
+id textView4
+id textView5
+id textView6
+id textView7
+id textView8
+id textView9
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1334,6 +1346,7 @@ string error_invalid_password
 string hello_blank_fragment
 string label_unitcategory
 string label_unitname
+string lvItem_poster
 string navigation_drawer_close
 string navigation_drawer_open
 string password_toggle_content_description
