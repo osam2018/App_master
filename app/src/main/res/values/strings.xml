@@ -13,13 +13,13 @@
     <string name="backdrop_subtitle">군 카풀 서비스</string>
 
     <string name="btn_login">LOGIN</string>
-    <string name="btn_link_to_register">Not a member? Get registered in Firebase now!</string>
-    <string name="btn_link_to_login">Already registered. Login Me!</string>
+    <string name="btn_link_to_register">회원이 아니신가요?</string>
+    <string name="btn_link_to_login">이미 가입되어있습니다.</string>
 
-    <string name="btn_forgot_password">Forgot your password?</string>
-    <string name="btn_reset_password">Reset Password</string>
+    <string name="btn_forgot_password">비밀번호 찾기</string>
+    <string name="btn_reset_password">비밀번호 초기화</string>
     <string name="btn_back"><![CDATA[<< Back]]></string>
-    <string name="action_sign_in_short">Register</string>
+    <string name="action_sign_in_short">가입</string>
 
     <!-- Strings related to login -->
     <string name="prompt_email">이메일</string>
@@ -32,11 +32,11 @@
     <string name="prompt_password_confirm">비밀번호 확인</string>
     <string name="action_sign_in">로그인</string>
     <string name="action_sign_up">회원가입</string>
-    <string name="error_invalid_email">This email address is invalid</string>
-    <string name="error_invalid_password">This password is too short</string>
-    <string name="error_comfirmation_password">Comfirmation password is invalid</string>
-    <string name="error_incorrect_password">This password is incorrect</string>
-    <string name="error_field_required">This field is required</string>
+    <string name="error_invalid_email">잘못된 이메일입니다.</string>
+    <string name="error_invalid_password">비밀번호가 짧습니다.</string>
+    <string name="error_comfirmation_password">비밀번호가 다릅니다.</string>
+    <string name="error_incorrect_password">비밀번호가 올바르지 않습니다.</string>
+    <string name="error_field_required">칸이 비어있습니다.</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="permission_camera_rationale">Camera permission is needed to show the camera preview.</string>
 
