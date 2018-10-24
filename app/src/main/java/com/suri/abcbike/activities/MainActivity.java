@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.suri.abcbike.R;
 
+import java.util.Date;
+
 // , OnMapReadyCallback
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected static final String TAG = MainActivity.class.getSimpleName();
@@ -47,8 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         ListviewAdapter adapter=new ListviewAdapter();
         ListView listview=(ListView)findViewById(R.id.carpool_list);
         listview.setAdapter(adapter);
-        adapter.addItem(new ListviewItem(3,30,"부대","간부 아파트","정태훈",1,4));
-        adapter.addItem(new ListviewItem(3,30,"간부아파트","부대","윤상운",1,4));
+        adapter.addItem(new ListviewItem(new Date(123123),"부대","간부 아파트","정태훈",1,4));
+        adapter.addItem(new ListviewItem(new Date(123123),"간부아파트","부대","윤상운",1,4));
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.carpool_add_fab);
         final Intent carpoolIntent=new Intent(this,CarpoolMakeActivity.class);

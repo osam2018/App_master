@@ -64,15 +64,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <EditText
+            <Spinner
                 android:id="@+id/group"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/prompt_group"
-                android:inputType="textEmailAddress"
-                android:maxLines="1"
-                android:singleLine="true"
-                android:textColor="@android:color/white" />
+                android:layout_height="45dp"
+                android:layout_weight="1" />
 
         </android.support.design.widget.TextInputLayout>
 

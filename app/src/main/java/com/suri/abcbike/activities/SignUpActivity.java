@@ -6,7 +6,6 @@ import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PorterDuff;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,13 +15,16 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.savagelook.android.UrlJsonAsyncTask;
+import com.suri.abcbike.R;
 
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
@@ -34,8 +36,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-
-import com.suri.abcbike.R;
 
 /**
  * A login screen that offers login via email/password.
@@ -55,7 +55,7 @@ public class SignUpActivity extends AppCompatActivity {
     // UI references.
     private EditText mEmailView;
     private EditText mNameView;
-    private EditText mGroupView;
+    private Spinner mGroupView;
     private EditText mRankView;
     private EditText mPhoneView;
     private CheckBox mUsingCarView;
@@ -63,22 +63,28 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText mPasswordConfirmView;
     private View mProgressView;
     private View mLoginFormView;
+    //resource connect
+    private String[] item;
+    private ArrayAdapter sAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
 
+        item = getResources().getStringArray(R.array.unit_head);
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+        sAdapter = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,item);
+
 
         // Set up the login form.
         mEmailView = (EditText) findViewById(R.id.email);
         mNameView = (EditText) findViewById(R.id.name);
-        mGroupView = (EditText) findViewById(R.id.group);
+        mGroupView = (Spinner) findViewById(R.id.group);
+        mGroupView.setAdapter(sAdapter);
         mRankView = (EditText) findViewById(R.id.rank);
         mPhoneView = (EditText) findViewById(R.id.phone);
         mUsingCarView = (CheckBox) findViewById(R.id.using_car);
-
         mPasswordView = (EditText) findViewById(R.id.password);
 
         mPasswordConfirmView = (EditText) findViewById(R.id.password_confirm);
@@ -119,19 +125,20 @@ public class SignUpActivity extends AppCompatActivity {
         // Reset errors.
         mEmailView.setError(null);
         mNameView.setError(null);
-        mGroupView.setError(null);
         mRankView.setError(null);
         mPhoneView.setError(null);
         mUsingCarView.setError(null);
         mPasswordView.setError(null);
         mPasswordConfirmView.setError(null);
 
+
+
         // Store values at the time of the login attempt.
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
         String passwordConfirm = mPasswordConfirmView.getText().toString();
         String name = mNameView.getText().toString();
-        String group = mGroupView.getText().toString();
+        String group = item[mGroupView.getSelectedItemPosition()];
         String rank = mRankView.getText().toString();
         String phone = mPhoneView.getText().toString();
         Boolean using_car = mUsingCarView.isChecked();

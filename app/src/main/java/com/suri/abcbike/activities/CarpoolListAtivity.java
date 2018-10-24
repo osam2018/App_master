@@ -10,6 +10,8 @@ import android.widget.ListView;
 
 import com.suri.abcbike.R;
 
+import java.util.Date;
+
 public class CarpoolListAtivity extends AppCompatActivity {
 
     @Override
@@ -30,7 +32,7 @@ public class CarpoolListAtivity extends AppCompatActivity {
         ListviewAdapter adapter=new ListviewAdapter();
         ListView listview=(ListView)findViewById(R.id.carpool_list);
         listview.setAdapter(adapter);
-        adapter.addItem(new ListviewItem(3,30,"부대","간부 아파트","정태훈",1,4));
+        adapter.addItem(new ListviewItem(new Date(12312),"부대","간부 아파트","정태훈",1,4));
     }
 
 }

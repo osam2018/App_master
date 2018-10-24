@@ -3,7 +3,7 @@
     <!--<color name="colorPrimary">#3F51B5</color>-->
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
     <!--<color name="colorAccent">#FF4081</color>-->
-    <color name="colorListTab">#3ce0f5</color>
+    <color name="colorListTab">#00d8f4</color>
     <color name="colorPrimaryDark">#0097a7</color>
     <color name="colorAccent">#faffce</color>
     <color name="colorPrimaryLight">#0097a7</color>
@@ -16,5 +16,7 @@
     <color name="pointer_color">#80FFFFFF</color>
     <color name="white">#FFFFFF</color>
     <color name="colorPrimary">#1bb7ff</color>
+    <color name="colorListContent">#3e63c9</color>
+    <color name="colorListText">#ffffff</color>
 
 </resources>

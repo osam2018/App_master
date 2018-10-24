@@ -518,7 +518,9 @@ color cardview_light_background
 color cardview_shadow_end_color
 color cardview_shadow_start_color
 color colorAccent
+color colorListContent
 color colorListTab
+color colorListText
 color colorPrimary
 color colorPrimaryDark
 color colorPrimaryLight
@@ -1040,6 +1042,7 @@ id left
 id light
 id line1
 id line3
+id linearLayout
 id listMode
 id list_item
 id login
@@ -1054,7 +1057,6 @@ id make_carpool_start
 id make_unit_form
 id make_unit_progress
 id masked
-id max
 id media_actions
 id message
 id middle
@@ -1088,7 +1090,6 @@ id password_confirm
 id percent
 id phone
 id pin
-id poster
 id profile_email
 id profile_image
 id profile_name
@@ -1142,7 +1143,6 @@ id src_in
 id src_over
 id standard
 id start
-id starttime
 id status_bar_latest_event_content
 id submenuarrow
 id submit_area
@@ -1360,10 +1360,7 @@ string hello_blank_fragment
 string label_unitcategory
 string label_unitname
 string lvItem_end
-string lvItem_max
-string lvItem_poster
 string lvItem_start
-string lvItem_starttime
 string navigation_drawer_close
 string navigation_drawer_open
 string password_toggle_content_description

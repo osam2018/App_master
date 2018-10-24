@@ -1,18 +1,17 @@
 package com.suri.abcbike.activities;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class ListviewItem {
-    private int startHour;
-    private int startMinute;
+    private Date startTime;
     private String start;
     private String end;
     private String poster;
     private int nowPerson;
     private int maxPerson;
-    public void setStartHour(int h){
-        this.startHour=h;
-    }
-    public void setStartMinute(int m){
-        this.startMinute=m;
+    public void setStartTime(Date t){
+        this.startTime=t;
     }
     public void setEnd(String s){
         this.end=s;
@@ -26,9 +25,8 @@ public class ListviewItem {
     public  void setNowPerson(int n){
         this.nowPerson=n;
     }
-    public  int getStartHour(){return this.startHour;}
-    public  int getStartMinute(){return this.startMinute;}
-    public String getStartTime(){return String.format("%d시 %d분",this.startHour,this.startMinute);}
+    public  Date getStartTimes(){return this.startTime;}
+    public String getStartTime(){return (new SimpleDateFormat("MM월 dd일 hh시 mm분")).format(this.startTime);}
     public String getStart(){
         return this.start;
     }
@@ -46,17 +44,15 @@ public class ListviewItem {
     }
     public String getMax(){return String.format("%d/%d명",this.nowPerson,this.maxPerson);}
     public  ListviewItem(){
-        this.startHour=0;
-        this.startMinute=0;
+        this.startTime=null;
         this.start=null;
         this.end=null;
         this.poster=null;
         this.nowPerson=0;
         this.maxPerson=0;
     }
-    public  ListviewItem(int h,int mi,String s,String e,String p,int n,int m){
-        this.startHour=h;
-        this.startMinute=mi;
+    public  ListviewItem(Date d,String s,String e,String p,int n,int m){
+        this.startTime=d;
         this.start=s;
         this.end=e;
         this.poster=p;
