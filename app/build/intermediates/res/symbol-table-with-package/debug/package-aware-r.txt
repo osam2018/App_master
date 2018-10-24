@@ -958,6 +958,12 @@ id adjust_height
 id adjust_width
 id alertTitle
 id alert_list
+id alert_name
+id alert_no
+id alert_text1
+id alert_text2
+id alert_type
+id alert_yes
 id all
 id always
 id appbar
@@ -1044,6 +1050,7 @@ id light
 id line1
 id line3
 id linearLayout
+id linearLayout2
 id listMode
 id list_item
 id login
@@ -1235,6 +1242,7 @@ layout activity_make_unit
 layout activity_sign_up
 layout activity_splash
 layout activity_unit_member
+layout alert
 layout app_bar_main
 layout carpool
 layout content_add_unit
