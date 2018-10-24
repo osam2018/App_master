@@ -3,9 +3,9 @@
     <!--<color name="colorPrimary">#3F51B5</color>-->
     <!--<color name="colorPrimaryDark">#303F9F</color>-->
     <!--<color name="colorAccent">#FF4081</color>-->
-    <color name="colorPrimary">#00bcd4</color>
+    <color name="colorListTab">#3ce0f5</color>
     <color name="colorPrimaryDark">#0097a7</color>
-    <color name="colorAccent">#b5f2fe71</color>
+    <color name="colorAccent">#faffce</color>
     <color name="colorPrimaryLight">#0097a7</color>
 
     <color name="viewBg">#f1f5f8</color>
@@ -15,5 +15,6 @@
     <color name="activity_color_picker_pointer_ring">#FFFFFFFF</color>
     <color name="pointer_color">#80FFFFFF</color>
     <color name="white">#FFFFFF</color>
+    <color name="colorPrimary">#1bb7ff</color>
 
 </resources>
