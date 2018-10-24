@@ -1,4 +1,4 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import android.app.FragmentManager;
 import android.content.Intent;
@@ -17,7 +17,7 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.suri.abcbike.R;
+import com.kosam.carpool.R;
 
 import java.util.Date;
 

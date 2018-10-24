@@ -1,4 +1,4 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

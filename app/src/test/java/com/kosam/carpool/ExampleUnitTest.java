@@ -1,4 +1,4 @@
-package com.suri.abcbike;
+package com.kosam.carpool;
 
 import org.junit.Test;
 

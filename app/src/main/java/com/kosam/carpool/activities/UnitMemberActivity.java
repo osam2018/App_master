@@ -1,4 +1,4 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.suri.abcbike.R;
+import com.kosam.carpool.R;
 
 public class UnitMemberActivity extends AppCompatActivity {
 

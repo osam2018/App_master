@@ -1,8 +1,7 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -14,7 +13,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.savagelook.android.UrlJsonAsyncTask;
-import com.suri.abcbike.R;
+import com.kosam.carpool.R;
 
 import org.apache.http.client.HttpResponseException;
 import org.apache.http.client.ResponseHandler;
@@ -31,7 +30,7 @@ public class AddUnitActivity extends AppCompatActivity {
     public static Activity mThisActivity;
 
     // For auth
-    private String mURL = "https://server-bpmsz.run.goorm.io/api/units";
+    private String mURL = "https://kosam-app-server.run.goorm.io/api/units";
     private AddUnitActivity.AddUnitTask mUnitTask = null;
     private String mToken;
     private SharedPreferences mPreferences;

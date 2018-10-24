@@ -1,4 +1,4 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.suri.abcbike.R;
+import com.kosam.carpool.R;
 
 import java.util.ArrayList;
 

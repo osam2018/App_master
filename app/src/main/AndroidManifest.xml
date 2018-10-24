@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.suri.abcbike">
+    package="com.kosam.carpool">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
@@ -17,17 +17,17 @@
             android:value="AIzaSyB3K5MHfdruWVZpAfMStLxgiNgyG5L1TFc" />
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.kosam.carpool.activities.MainActivity"
             android:hardwareAccelerated="true"
             android:label="@string/app_name" />
         <activity
-            android:name=".activities.LoginActivity"
+            android:name="com.kosam.carpool.activities.LoginActivity"
             android:label="@string/title_activity_login" />
         <activity
-            android:name=".activities.makeUnitActivity"
+            android:name="com.kosam.carpool.activities.makeUnitActivity"
             android:label="@string/title_activity_make_unit" />
         <activity
-            android:name=".activities.UnitMemberActivity"
+            android:name="com.kosam.carpool.activities.UnitMemberActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
 
@@ -46,7 +46,7 @@
         </activity>
         -->
         <activity
-            android:name=".activities.SplashActivity"
+            android:name="com.kosam.carpool.activities.SplashActivity"
             android:theme="@style/AppTheme.NoActionBar" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -55,21 +55,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.IntroActivity"
+            android:name="com.kosam.carpool.activities.IntroActivity"
             android:label="@string/title_activity_intro"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.SignUpActivity"
+            android:name="com.kosam.carpool.activities.SignUpActivity"
             android:label="@string/title_activity_sign_up" />
         <activity
-            android:name=".activities.AddUnitActivity"
+            android:name="com.kosam.carpool.activities.AddUnitActivity"
             android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activities.CarpoolListAtivity"
+            android:name="com.kosam.carpool.activities.CarpoolListAtivity"
             android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.CarpoolMakeActivity"></activity>
+        <activity android:name="com.kosam.carpool.activities.CarpoolMakeActivity"></activity>
     </application>
 
 </manifest>

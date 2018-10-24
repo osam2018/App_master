@@ -1,4 +1,4 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -9,8 +9,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 
-import com.bumptech.glide.Glide;
-import com.suri.abcbike.R;
+import com.kosam.carpool.R;
 
 public class SplashActivity extends AppCompatActivity {
 

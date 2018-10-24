@@ -1,4 +1,4 @@
-package com.suri.abcbike.activities;
+package com.kosam.carpool.activities;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
 
-import com.suri.abcbike.R;
+import com.kosam.carpool.R;
 
 public class IntroActivity extends AppCompatActivity implements View.OnClickListener {
 
