@@ -1,0 +1,175 @@
+ private void sendCarpool() {
+        if (mCarpoolTask != null) {
+            return;
+        }
+
+        // Reset errors.
+        mUnitName.setError(null);
+        Log.e("continue","setError");
+
+        // Store values at the time of the login attempt.
+        String top_unit = mSpinner.getSelectedItem().toString();
+        String unit_name = mUnitName.getText().toString();
+        Log.e("data",top_unit + ", " + unit_name);
+        boolean cancel = false;
+        View focusView = null;
+
+        // Check for a valid password, if the user entered one.
+        if (TextUtils.isEmpty(unit_name)) {
+            mUnitName.setError(getString(R.string.error_field_required));
+            focusView = mUnitName;
+            cancel = true;
+
+        }
+
+        if (cancel) {
+            // There was an error; don't attempt login and focus the first form field with an error.
+            focusView.requestFocus();
+        } else {
+            // Show a progress spinner, and kick off a background task to perform the user login attempt.
+            showProgress(true);
+            Log.e("task","before unit task");
+            mCarpoolTask = new CarpoolMakeActivity.CarpoolTask(this, top_unit, unit_name);
+            mCarpoolTask.execute(mURL);
+        }
+    }
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            mCarpoolMakeFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mCarpoolMakeFormView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mCarpoolMakeFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mCarpoolMakeFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+
+        if (!show) {
+            mUnitTask = null;
+        }
+
+    }
+
+    private class CarpoolTask extends UrlJsonAsyncTask {
+
+        private final String mTopUnit;
+        private final String mUnitName;
+
+        public CarpoolTask(Context context, String top_unit, String unit_name) {
+            super(context);
+
+            mTopUnit = top_unit;
+            mUnitName = unit_name;
+        }
+
+        @Override
+        protected JSONObject doInBackground(String... urls) {
+
+            DefaultHttpClient client = new DefaultHttpClient();
+            HttpPost post = new HttpPost(urls[0]);
+            JSONObject holder = new JSONObject();
+            JSONObject carpoolObj = new JSONObject();
+            String response = null;
+            JSONObject json = new JSONObject();
+
+            try {
+                try {
+                    // setup the returned values in case
+                    // something goes wrong
+                    json.put("success", false);
+                    json.put("info", "Something went wrong.");
+                    // add the user email and password to
+                    // the params
+                    carpoolObj.put("auth_token", mPreferences.getString("AuthToken",""));
+                    carpoolObj.put("start_location", mTopUnit);
+                    carpoolObj.put("end_location", mUnitName);
+                    carpoolObj.put("max_people", mUnitName);
+                    carpoolObj.put("start_time", mUnitName);
+                    holder.put("unit", carpoolObj);
+                    StringEntity se = new StringEntity(holder.toString());
+                    post.setEntity(se);
+
+                    // setup the request headers
+                    post.setHeader("Accept", "application/json");
+                    post.setHeader("Content-Type", "application/json");
+
+                    ResponseHandler<String> responseHandler = new BasicResponseHandler();
+                    response = client.execute(post, responseHandler);
+                    json = new JSONObject(response);
+
+                } catch (HttpResponseException e) {
+                    e.printStackTrace();
+                    Log.e("ClientProtocol", "" + e);
+                    json.put("info", "Email and/or password are invalid.");
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    Log.e("IO", "" + e);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                Log.e("JSON", "" + e);
+            }
+
+            return json;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject json) {
+            try {
+                if (json.getBoolean("success")) {
+                    // everything is ok
+
+                    // save the returned auth_token into the SharedPreferences
+
+                    if (json.getJSONObject("data").isNull("unit_id")) {
+
+                    } else {
+                        // editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
+                        //editor.apply();
+                    }
+                    // launch the HomeActivity and close this one
+
+                } else {
+                    showProgress(false);
+                }
+                Toast.makeText(context, json.getString("info"), Toast.LENGTH_LONG).show();
+            } catch (Exception e) {
+                // something went wrong: show a Toast with the exception message
+                Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+                showProgress(false);
+            } finally {
+                super.onPostExecute(json);
+            }
+        }
+
+        @Override
+        protected void onCancelled() {
+            mCarpoolTask = null;
+            showProgress(false);
+        }
+
+    }
