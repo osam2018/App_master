@@ -1349,6 +1349,7 @@ string common_google_play_services_wear_update_text
 string common_open_on_phone
 string common_signin_button_text
 string common_signin_button_text_long
+string default_web_client_id
 string dummy_button
 string dummy_content
 string error_comfirmation_password
@@ -1356,6 +1357,13 @@ string error_field_required
 string error_incorrect_password
 string error_invalid_email
 string error_invalid_password
+string fcm_fallback_notification_channel_label
+string firebase_database_url
+string gcm_defaultSenderId
+string google_api_key
+string google_app_id
+string google_crash_reporting_api_key
+string google_storage_bucket
 string hello_blank_fragment
 string label_unitcategory
 string label_unitname
@@ -1370,6 +1378,7 @@ string path_password_eye_mask_visible
 string path_password_strike_through
 string permission_camera_rationale
 string permission_rationale
+string project_id
 string prompt_email
 string prompt_group
 string prompt_name
