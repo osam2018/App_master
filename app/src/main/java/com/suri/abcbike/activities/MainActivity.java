@@ -3,38 +3,20 @@ package com.suri.abcbike.activities;
 import android.app.FragmentManager;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.graphics.Rect;
 import android.os.Bundle;
-import android.support.design.widget.AppBarLayout;
-import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
+import android.widget.ListView;
 import android.widget.TextView;
-import com.bumptech.glide.Glide;
 
-
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapFragment;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.suri.abcbike.R;
 
 // , OnMapReadyCallback
@@ -46,8 +28,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private View mLayout;
 
-    private TextView UserName;
-    private TextView UserEmail;
+   // private TextView UserName;
+    //private TextView UserEmail;
 
     private TextView NavUserName;
     private TextView NavUserEmail;
@@ -61,6 +43,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setSupportActionBar(toolbar);
 
         //initCollapsingToolbar();
+
+        ListviewAdapter adapter=new ListviewAdapter();
+        ListView listview=(ListView)findViewById(R.id.carpool_list);
+        listview.setAdapter(adapter);
+        adapter.addItem(new ListviewItem(3,30,"부대","간부 아파트","정태훈",1,4));
+        adapter.addItem(new ListviewItem(3,30,"간부아파트","부대","윤상운",1,4));
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.carpool_add_fab);
+        final Intent carpoolIntent=new Intent(this,CarpoolMakeActivity.class);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(carpoolIntent);
+            }
+        });
 
         Intent i = getIntent();
         if (!i.getBooleanExtra("auto",false)){
@@ -77,17 +74,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
-        UserName = (TextView) findViewById(R.id.profile_name);
-        UserEmail = (TextView) findViewById(R.id.profile_email);
+        //UserName = (TextView) findViewById(R.id.profile_name);
+        //UserEmail = (TextView) findViewById(R.id.profile_email);
 
-        UserName.setText(mPreferences.getString("Name","Save The Color"));
+        /*UserName.setText(mPreferences.getString("Name","Save The Color"));
         if (mPreferences.getInt("UnitId", -1) == -1) {
             UserEmail.setText("not setting unit");
         } else {
             UserEmail.setText(mPreferences.getString("TopUnit", "") + " - " + mPreferences.getString("UnitName", ""));
         }
         // UserEmail.setText(mPreferences.getString("Email","Save The Color"));
-
+*/
 
 
 
@@ -134,14 +131,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserEmail.setText(mPreferences.getString("Email","Save The Color"));
 
 
-        try {
+        /*try {
             Glide.with(this).load(R.drawable.profile_image).into((ImageView) findViewById(R.id.profile_image));
             Glide.with(this).load(R.drawable.choco).into((ImageView) findViewById(R.id.backdrop));
             Glide.with(this).load(R.drawable.profile_image).into((ImageView) header.findViewById(R.id.nav_profile_image));
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+*/
     }
 /*
     @Override

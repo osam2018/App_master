@@ -967,6 +967,7 @@ id bottom
 id btn_signup
 id buttonPanel
 id cancel_action
+id carpool_add_fab
 id carpool_end
 id carpool_list
 id carpool_max
@@ -1151,7 +1152,6 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
-id textView2
 id textView3
 id textView4
 id textView5

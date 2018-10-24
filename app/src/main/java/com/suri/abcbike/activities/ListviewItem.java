@@ -44,7 +44,7 @@ public class ListviewItem {
     public int getMaxPerson(){
         return this.maxPerson;
     }
-    public String getMax(){return String.format("%d/%d",this.nowPerson,this.maxPerson);}
+    public String getMax(){return String.format("%d/%d명",this.nowPerson,this.maxPerson);}
     public  ListviewItem(){
         this.startHour=0;
         this.startMinute=0;
