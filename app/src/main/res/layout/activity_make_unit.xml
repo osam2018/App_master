@@ -8,7 +8,7 @@
     android:background="@color/colorPrimary"
     tools:context="com.suri.abcbike.activities.AddUnitActivity">
     <LinearLayout
-        android:id="@+id/email_login_form"
+        android:id="@+id/make_unit_form"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -100,8 +100,8 @@
         -->
     <ProgressBar
         android:id="@+id/make_unit_progress"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_gravity="center|bottom"
         android:layout_marginBottom="20dp"
         android:visibility="gone" />

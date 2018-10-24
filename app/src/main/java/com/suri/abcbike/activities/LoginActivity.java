@@ -301,7 +301,10 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                         startActivity(intent);
                         finish();
                     } else {
+
                         editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
+                        editor.putString("TopUnit", json.getJSONObject("data").getString("top_unit"));
+                        editor.putString("UnitName", json.getJSONObject("data").getString("unit_name"));
                         editor.apply();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);

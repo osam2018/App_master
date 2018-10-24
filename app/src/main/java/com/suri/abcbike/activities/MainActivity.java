@@ -82,9 +82,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         UserName.setText(mPreferences.getString("Name","Save The Color"));
         if (mPreferences.getInt("UnitId", -1) == -1) {
-            UserEmail.setText("not set unit");
+            UserEmail.setText("not setting unit");
         } else {
-            UserEmail.setText("set unit");
+            UserEmail.setText(mPreferences.getString("TopUnit", "") + " - " + mPreferences.getString("UnitName", ""));
         }
         // UserEmail.setText(mPreferences.getString("Email","Save The Color"));
 

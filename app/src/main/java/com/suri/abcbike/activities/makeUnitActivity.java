@@ -45,13 +45,13 @@ public class makeUnitActivity extends AppCompatActivity {
     private String mURL = "https://server-bpmsz.run.goorm.io/api/units";
     private makeUnitActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
-    private AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
     Spinner mSpinner;
     ArrayAdapter sAdapter;
     String[] item;
     EditText mUnitName;
     private View mProgressView;
+    private View mMakeUnitFormView;
     public static Activity mThisActivity;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +59,8 @@ public class makeUnitActivity extends AppCompatActivity {
         setContentView(R.layout.activity_make_unit);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
 
         item = getResources().getStringArray(R.array.unit_head);
@@ -79,18 +81,32 @@ public class makeUnitActivity extends AppCompatActivity {
         });
 
         Button mAddUnitButton = (Button) findViewById(R.id.add_unit_button );
+        mMakeUnitFormView = findViewById(R.id.make_unit_form);
         mProgressView = findViewById(R.id.make_unit_progress);
 
         mAddUnitButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
-                alert.setMessage("click");
-                alert.show();
+
                 sendUnit();
             }
         });
 
 
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        showProgress(false);
+        finish();
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        showProgress(false);
+        finish();
     }
 
     @Override
@@ -169,19 +185,28 @@ public class makeUnitActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
             int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
 
-
+            mMakeUnitFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mMakeUnitFormView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mMakeUnitFormView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
             mProgressView.animate().setDuration(shortAnimTime).alpha(
                     show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+
                 }
             });
         } else {
             // The ViewPropertyAnimator APIs are not available, so simply show
             // and hide the relevant UI components.
             mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mMakeUnitFormView.setVisibility(show ? View.GONE : View.VISIBLE);
         }
 
         if (!show) {
@@ -261,18 +286,19 @@ public class makeUnitActivity extends AppCompatActivity {
 
                     SharedPreferences.Editor editor = mPreferences.edit();
                     // save the returned auth_token into the SharedPreferences
-                    editor.remove("AutoToken");
                     editor.remove("UnitId");
-                    editor.putString("AuthToken", json.getJSONObject("data").getString("auth_token"));
 
                     if (json.getJSONObject("data").isNull("unit_id")) {
                         editor.putInt("UnitId", -1);
+
                         editor.apply();
                         Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);
                         startActivity(intent);
                         finish();
                     } else {
                         editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));
+                        editor.putString("TopUnit", json.getJSONObject("data").getString("top_unit"));
+                        editor.putString("UnitName", json.getJSONObject("data").getString("unit_name"));
                         editor.apply();
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
@@ -296,6 +322,7 @@ public class makeUnitActivity extends AppCompatActivity {
         @Override
         protected void onCancelled() {
             mUnitTask = null;
+            showProgress(false);
         }
 
     }
