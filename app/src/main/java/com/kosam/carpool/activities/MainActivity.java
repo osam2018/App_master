@@ -30,11 +30,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private NavigationView navigationView;
     private View mLayout;
 
-   // private TextView UserName;
-    //private TextView UserEmail;
 
     private TextView NavUserName;
-    private TextView NavUserEmail;
 
 
     @Override
@@ -69,49 +66,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 
         FragmentManager fragmentManager = getFragmentManager();
-        // MapFragment mapFragment = (MapFragment)fragmentManager.findFragmentById(R.id.map);
-        // mapFragment.getMapAsync(this);
-
 
 
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
-        //UserName = (TextView) findViewById(R.id.profile_name);
-        //UserEmail = (TextView) findViewById(R.id.profile_email);
-
-        /*UserName.setText(mPreferences.getString("Name","Save The Color"));
-        if (mPreferences.getInt("UnitId", -1) == -1) {
-            UserEmail.setText("not setting unit");
-        } else {
-            UserEmail.setText(mPreferences.getString("TopUnit", "") + " - " + mPreferences.getString("UnitName", ""));
-        }
-        // UserEmail.setText(mPreferences.getString("Email","Save The Color"));
-*/
 
 
 
-/*
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
 
-        mLayout = findViewById(R.id.root_view);
-
-        navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-
-        View header = navigationView.getHeaderView(0);
-        TextView tvUserName = (TextView) header.findViewById(R.id.user_name);
-        TextView tvUserEmail = (TextView) header.findViewById(R.id.user_email);
-
-        tvUserName.setText(mPreferences.getString("Email","Save The Color"));
-        tvUserEmail.setText(mPreferences.getString("Email","Save The Color"));
-
-        navigationView.getMenu().getItem(0).setChecked(true);
-        onNavigationItemSelected(navigationView.getMenu().getItem(0));
-*/
 
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,68 +88,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         View header = navigationView.getHeaderView(0);
 
-        NavUserName = (TextView) header.findViewById(R.id.nav_user_name);
-        NavUserEmail = (TextView) header.findViewById(R.id.nav_user_email);
+        NavUserName = (TextView) header.findViewById(R.id.nav_head_name);
 
         NavUserName.setText(mPreferences.getString("Name","Save The Color"));
-        NavUserEmail.setText(mPreferences.getString("Email","Save The Color"));
 
 
-        /*try {
-            Glide.with(this).load(R.drawable.profile_image).into((ImageView) findViewById(R.id.profile_image));
-            Glide.with(this).load(R.drawable.choco).into((ImageView) findViewById(R.id.backdrop));
-            Glide.with(this).load(R.drawable.profile_image).into((ImageView) header.findViewById(R.id.nav_profile_image));
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-*/
     }
-/*
-    @Override
-    public void onMapReady(final GoogleMap map) {
 
-        LatLng SEOUL = new LatLng(37.56, 126.97);
 
-        MarkerOptions markerOptions = new MarkerOptions();
-        markerOptions.position(SEOUL);
-        markerOptions.title("서울");
-        markerOptions.snippet("한국의 수도");
-        map.addMarker(markerOptions);
 
-        map.moveCamera(CameraUpdateFactory.newLatLng(SEOUL));
-        map.animateCamera(CameraUpdateFactory.zoomTo(10));
-    }
-*/
-
-/*
-    private void initCollapsingToolbar() {
-        final CollapsingToolbarLayout collapsingToolbar =
-                (CollapsingToolbarLayout) findViewById(R.id.collapsing_toolbar);
-        collapsingToolbar.setTitle(" ");
-        AppBarLayout appBarLayout = (AppBarLayout) findViewById(R.id.appbar);
-        appBarLayout.setExpanded(true);
-
-        // hiding & showing the title when toolbar expanded & collapsed
-        appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isShow = false;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    collapsingToolbar.setTitle(getString(R.string.app_name));
-                    isShow = true;
-                } else if (isShow) {
-                    collapsingToolbar.setTitle(" ");
-                    isShow = false;
-                }
-            }
-        });
-    }
-*/
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -216,29 +125,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         super.onDestroy();
     }
-/*
-    private int dpToPx(int dp) {
-        Resources r = getResources();
-        return Math.round(TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, r.getDisplayMetrics()));
-    }
-*/
+
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_alert) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_unit_info) {
+            Intent gotoAlert=new Intent(this,AlertActivity.class);
+            startActivity(gotoAlert);
+        } else if (id == R.id.nav_setting) {
 
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_logout) {
 
         }
 
@@ -279,28 +180,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 
-
-/*
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        switch (id) {
-
-            case R.id.nav_camera:
-
-
-                break;
-
-            default:
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
-    }
-*/
 }

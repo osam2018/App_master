@@ -957,6 +957,7 @@ id addcarpool_button
 id adjust_height
 id adjust_width
 id alertTitle
+id alert_list
 id all
 id always
 id appbar
@@ -1063,15 +1064,12 @@ id middle
 id mini
 id multiply
 id name
-id nav_camera
-id nav_gallery
-id nav_manage
-id nav_profile_image
-id nav_send
-id nav_share
-id nav_slideshow
-id nav_user_email
-id nav_user_name
+id nav_alert
+id nav_head_name
+id nav_head_text
+id nav_logout
+id nav_setting
+id nav_unit_info
 id nav_view
 id navigation_header_container
 id never
@@ -1227,6 +1225,7 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout activity_add_unit
+layout activity_alert
 layout activity_carpool_list_ativity
 layout activity_carpool_make
 layout activity_intro
@@ -1239,6 +1238,7 @@ layout activity_unit_member
 layout app_bar_main
 layout carpool
 layout content_add_unit
+layout content_alert
 layout content_carpool_list_ativity
 layout content_main
 layout content_unit_member
@@ -1361,6 +1361,11 @@ string label_unitcategory
 string label_unitname
 string lvItem_end
 string lvItem_start
+string menu_alert
+string menu_logout
+string menu_setting
+string menu_unit_info
+string nav_head_text
 string navigation_drawer_close
 string navigation_drawer_open
 string password_toggle_content_description

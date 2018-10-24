@@ -1,9 +1,13 @@
 <resources>
     <string name="app_name">카풀</string>
+    <string name="menu_alert">알림함</string>
+    <string name="menu_unit_info">부대 정보</string>
+    <string name="menu_setting">설정</string>
+    <string name="menu_logout">로그아웃</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
+    <string name="nav_head_text">님 환영합니다.</string>
     <string name="str_done">완료</string>
 
     <string name="action_settings">Settings</string>
