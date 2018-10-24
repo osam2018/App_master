@@ -188,11 +188,7 @@ ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:64:9-6
 activity#com.suri.abcbike.activities.CarpoolListAtivity
 ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:68:9-71:59
 	android:label
-<<<<<<< HEAD
 		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:70:13-60
-=======
-		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:68:13-60
->>>>>>> 77ebff303b78dbadd1279e98c0aeee117960fa37
 	android:theme
 		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:71:13-56
 	android:name

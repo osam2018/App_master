@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -44,6 +45,7 @@ public class makeUnitActivity extends AppCompatActivity {
     private String mURL = "https://server-bpmsz.run.goorm.io/api/units";
     private makeUnitActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
+    private AlertDialog.Builder alert = new AlertDialog.Builder(this);
 
     Spinner mSpinner;
     ArrayAdapter sAdapter;
@@ -82,6 +84,8 @@ public class makeUnitActivity extends AppCompatActivity {
         mAddUnitButton.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view) {
+                alert.setMessage("click");
+                alert.show();
                 sendUnit();
             }
         });
@@ -128,11 +132,12 @@ public class makeUnitActivity extends AppCompatActivity {
 
         // Reset errors.
         mUnitName.setError(null);
+        Log.e("continue","setError");
 
         // Store values at the time of the login attempt.
         String top_unit = mSpinner.getSelectedItem().toString();
         String unit_name = mUnitName.getText().toString();
-
+        Log.e("data",top_unit + ", " + unit_name);
         boolean cancel = false;
         View focusView = null;
 
@@ -150,6 +155,7 @@ public class makeUnitActivity extends AppCompatActivity {
         } else {
             // Show a progress spinner, and kick off a background task to perform the user login attempt.
             showProgress(true);
+            Log.e("task","before unit task");
             mUnitTask = new UnitTask(this, top_unit, unit_name);
             mUnitTask.execute(mURL);
         }

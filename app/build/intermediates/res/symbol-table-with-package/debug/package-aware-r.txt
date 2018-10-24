@@ -950,10 +950,7 @@ id actions
 id activity_chooser_view_content
 id add
 id add_unit_button
-<<<<<<< HEAD
-=======
 id addcarpool_button
->>>>>>> 77ebff303b78dbadd1279e98c0aeee117960fa37
 id adjust_height
 id adjust_width
 id alertTitle
@@ -1047,15 +1044,12 @@ id login
 id login_form
 id login_progress
 id main_content
-<<<<<<< HEAD
-id make_unit_progress
-=======
 id make_carpool_end
 id make_carpool_hour
 id make_carpool_max
 id make_carpool_minute
 id make_carpool_start
->>>>>>> 77ebff303b78dbadd1279e98c0aeee117960fa37
+id make_unit_progress
 id masked
 id max
 id media_actions
@@ -1156,22 +1150,12 @@ id text2
 id textSpacerNoButtons
 id textSpacerNoTitle
 id textView
-<<<<<<< HEAD
-id textView10
-id textView11
-id textView12
-=======
->>>>>>> 77ebff303b78dbadd1279e98c0aeee117960fa37
+id textView2
 id textView3
 id textView4
 id textView5
 id textView6
 id textView7
-<<<<<<< HEAD
-id textView8
-id textView9
-=======
->>>>>>> 77ebff303b78dbadd1279e98c0aeee117960fa37
 id text_input_password_toggle
 id textinput_counter
 id textinput_error
@@ -1373,15 +1357,11 @@ string error_invalid_password
 string hello_blank_fragment
 string label_unitcategory
 string label_unitname
-<<<<<<< HEAD
-string lvItem_poster
-=======
 string lvItem_end
 string lvItem_max
 string lvItem_poster
 string lvItem_start
 string lvItem_starttime
->>>>>>> 77ebff303b78dbadd1279e98c0aeee117960fa37
 string navigation_drawer_close
 string navigation_drawer_open
 string password_toggle_content_description
