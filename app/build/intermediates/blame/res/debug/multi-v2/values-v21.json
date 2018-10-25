@@ -1,27 +1,8 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
+            "outputFile": "C:\\Users\\USER\\Desktop\\carpool\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v21\\values-v21.xml",
             "map": [
-                {
-                    "source": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\src\\main\\res\\values-v21\\styles.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "19",
-                        "endLines": "7",
-                        "endColumns": "12",
-                        "endOffsets": "320"
-                    },
-                    "to": {
-                        "startLines": "6",
-                        "startColumns": "4",
-                        "startOffsets": "354",
-                        "endLines": "11",
-                        "endColumns": "12",
-                        "endOffsets": "650"
-                    }
-                },
                 {
                     "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\823ba09d485c8436eac66dcdae25da9c\\res\\values-v21\\values-v21.xml",
                     "from": {
@@ -58,6 +39,25 @@
                         "endLines": "172,234",
                         "endColumns": "12,96",
                         "endOffsets": "13084,17520"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\USER\\Desktop\\carpool\\app\\src\\main\\res\\values-v21\\styles.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "19",
+                        "endLines": "7",
+                        "endColumns": "12",
+                        "endOffsets": "320"
+                    },
+                    "to": {
+                        "startLines": "6",
+                        "startColumns": "4",
+                        "startOffsets": "354",
+                        "endLines": "11",
+                        "endColumns": "12",
+                        "endOffsets": "650"
                     }
                 },
                 {
