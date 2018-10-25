@@ -35,9 +35,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private TextView NavUserUnitName;
     private TextView NavUserEmail;
     //ui참조
-    ListviewAdapter adapter;
     ListView listview;
     FloatingActionButton carpoolMakeFab;
+
+    ListviewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,12 +77,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
-
-
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -92,6 +87,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
+        //navigation header 설정
         NavUserName = (TextView) findViewById(R.id.nav_head_name);
         NavUserTopUnit = (TextView) findViewById(R.id.nav_head_topunit);
         NavUserUnitName = (TextView) findViewById(R.id.nav_head_unitname);
@@ -136,17 +132,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // 네비게이션뷰 선택 처리
         int id = item.getItemId();
 
         if (id == R.id.nav_alert) {
-            // Handle the camera action
-        } else if (id == R.id.nav_unit_info) {
+            // 알림함 연결
             Intent gotoAlert=new Intent(this,AlertActivity.class);
             startActivity(gotoAlert);
+        } else if (id == R.id.nav_unit_info) {
+            //부대 정보 연결
         } else if (id == R.id.nav_setting) {
+            //설정 연결
 
         } else if (id == R.id.nav_logout) {
+            //로그아웃
+            mPreferences.edit().clear().commit();
+            Intent goIntro = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(goIntro);
+            finish();
 
         }
 
@@ -154,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+/*  옵션메뉴 삭제
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -186,5 +189,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
 }
