@@ -3,6 +3,7 @@ package com.kosam.carpool.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
@@ -140,52 +141,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mCarpoolTask = new MainActivity.CarpoolTask(this);
         mCarpoolTask.execute(mURL);
 
-        if ( isExternalStorageWritable() ) {
-
-            File appDirectory = new File( Environment.getExternalStorageDirectory() + "/com.kosam.carpool" );
-            File logDirectory = new File( appDirectory + "/log" );
-            File logFile = new File( logDirectory, "logcat" + System.currentTimeMillis() + ".txt" );
-
-            // create app folder
-            if ( !appDirectory.exists() ) {
-                appDirectory.mkdir();
-            }
-
-            // create log folder
-            if ( !logDirectory.exists() ) {
-                logDirectory.mkdir();
-            }
-
-            // clear the previous logcat and then write the new one to the file
-            try {
-                Process process = Runtime.getRuntime().exec("logcat -c");
-                process = Runtime.getRuntime().exec("logcat -f " + logFile);
-            } catch ( IOException e ) {
-                e.printStackTrace();
-            }
-
-        } else if ( isExternalStorageReadable() ) {
-            // only readable
-        } else {
-            // not accessible
-        }
-    }
-    public boolean isExternalStorageWritable() {
-        String state = Environment.getExternalStorageState();
-        if ( Environment.MEDIA_MOUNTED.equals( state ) ) {
-            return true;
-        }
-        return false;
-    }
-
-    /* Checks if external storage is available to at least read */
-    public boolean isExternalStorageReadable() {
-        String state = Environment.getExternalStorageState();
-        if ( Environment.MEDIA_MOUNTED.equals( state ) ||
-                Environment.MEDIA_MOUNTED_READ_ONLY.equals( state ) ) {
-            return true;
-        }
-        return false;
     }
 
 
@@ -331,54 +286,53 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPostExecute(JSONObject json) {
             try {
-                if (json.getBoolean("success")) {
-                    // everything is ok
+                Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
+                JSONArray jCarpoolArray = json.getJSONArray("data");
+                Toast.makeText(context, "Test0", Toast.LENGTH_LONG).show();
 
-                    //SharedPreferences.Editor editor = mPreferences.edit();
-                    // save the returned auth_token into
-                    // the SharedPreferences
-                    JSONArray jCarpoolArray = json.getJSONObject("data").getJSONArray("carpool");
-                    if(jCarpoolArray != null) {
 
-                        for(int i = 0; i <jCarpoolArray.length(); i++) {
-                            JSONObject jobj = jCarpoolArray.getJSONObject(i);
 
-                            String start_date_str = jobj.getString("start_time");
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                            Date start_date = sdf.parse(start_date_str);
-                            String start = jobj.getString("start");
-                            String end = jobj.getString("end");
-                            String poster = jobj.getString("poster");
-                            Integer poster_id = jobj.getInt("poster_id");
-                            Integer now_person = jobj.getInt("current_user");
-                            Integer max_person = jobj.getInt("max_people");
 
-                            Log.e("Data", start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString());
-                            Toast.makeText(context, start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString(), Toast.LENGTH_LONG).show();
-                            //ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
 
-                            CarpoolListItem item = new CarpoolListItem(start_date, start,end,poster,poster_id, now_person, max_person);
+                if(jCarpoolArray != null) {
 
-                            adapter.addItem(item);
-                            //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
-                            //mCarpoolList.add(j_pair);
-                        }
+                    for(int i = 0; i <jCarpoolArray.length(); i++) {
+                        JSONObject jobj = jCarpoolArray.getJSONObject(i);
 
-                        //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
-                        listview.setAdapter(adapter);
+                        String start_date_str = jobj.getString("start_time");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                        Date start_date = sdf.parse(start_date_str);
+                        String start = jobj.getString("start");
+                        String end = jobj.getString("end");
+                        String poster = "test";
+                        Integer poster_id = jobj.getInt("poster_id");
+                        Integer now_person = jobj.getInt("current_user");
+                        Integer max_person = jobj.getInt("max_people");
+
+
+                        Toast.makeText(context, start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString(), Toast.LENGTH_LONG).show();
+                        //ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
+
+                        CarpoolListItem item = new CarpoolListItem(start_date, start,end,poster,poster_id, now_person, max_person);
+
+                        adapter.addItem(item);
+                        //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
+                        //mCarpoolList.add(j_pair);
                     }
 
-
-                } else {
-                    showProgress(false);
+                    //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
+                    listview.setAdapter(adapter);
                 }
                 Toast.makeText(context, json.getString("info"), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Test1", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 // something went wrong: show a Toast
                 // with the exception message
                 Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Test2", Toast.LENGTH_LONG).show();
                 showProgress(false);
             } finally {
+                Toast.makeText(context, "Test3", Toast.LENGTH_LONG).show();
                 super.onPostExecute(json);
             }
         }
