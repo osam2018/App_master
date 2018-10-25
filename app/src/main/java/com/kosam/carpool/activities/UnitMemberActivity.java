@@ -13,7 +13,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.kosam.carpool.R;
@@ -36,13 +39,16 @@ import java.util.List;
 import java.util.Map;
 
 public class UnitMemberActivity extends AppCompatActivity {
-    List<Pair> mUnitList = new ArrayList<Pair>();
+    private UnitMemberActivity thisActivity;
+    List<Pair> mUnitList;
+    ArrayList<String> items;
+    ArrayAdapter adapter;
     private UnitMemberActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
     private String mURL = "https://kosam-app-server.run.goorm.io/api/units/show";
 
     private View mProgressView;
-    private View mUnitListView;
+    private ListView mUnitListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +57,9 @@ public class UnitMemberActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        thisActivity=this;
+        mUnitList = new ArrayList<Pair>();
+        items=new ArrayList();
         mUnitListView = findViewById(R.id.unit_list_view);
         mProgressView = findViewById(R.id.unit_progress);
 
@@ -58,6 +67,9 @@ public class UnitMemberActivity extends AppCompatActivity {
 
         mUnitTask = new UnitMemberActivity.UnitTask(this);
         mUnitTask.execute(mURL);
+        adapter=new ArrayAdapter(thisActivity,android.R.layout.simple_list_item_1,items);
+        mUnitListView.setAdapter(adapter);
+
 
         FloatingActionButton makeUnitBtn = (FloatingActionButton) findViewById(R.id.unit_make);
         final Intent i=new Intent(this,makeUnitActivity.class);
@@ -136,15 +148,13 @@ public class UnitMemberActivity extends AppCompatActivity {
                     // the SharedPreferences
                     JSONArray jUnitArray = json.getJSONObject("data").getJSONArray("unit");
                     if(jUnitArray != null) {
-
+                        mUnitList.clear();
                         for(int i = 0; i <jUnitArray.length(); i++) {
                             JSONObject jobj = jUnitArray.getJSONObject(i);
-                            Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
+                            Pair<Integer,String> j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
                             mUnitList.add(j_pair);
+                            items.add(j_pair.second);
                         }
-
-                        //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
-
                     }
 
 
@@ -169,7 +179,16 @@ public class UnitMemberActivity extends AppCompatActivity {
         }
 
     }
-
+    private  void refreshList(){
+        mUnitTask.execute(mURL);
+        adapter.notifyDataSetChanged();
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
