@@ -39,6 +39,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 // , OnMapReadyCallback
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //리스트뷰에 어댑터 연결
         adapter=new ListviewAdapter();
-        listview.setAdapter(adapter);
+
 
         //fab에 카풀 생성 액티비티 연결
         carpoolMakeFab.setOnClickListener(new View.OnClickListener() {
@@ -116,6 +117,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
+        Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
+/*
         //navigation header 설정
         NavUserName = (TextView) findViewById(R.id.nav_head_name);
         NavUserTopUnit = (TextView) findViewById(R.id.nav_head_topunit);
@@ -125,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
         NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
         NavUserEmail.setText(mPreferences.getString("Email",""));
-
+*/
         //카풀 리스트뷰 연결
 
     }
@@ -189,7 +192,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-/*  옵션메뉴 삭제
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -221,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return super.onOptionsItemSelected(item);
     }
-*/
+
 
     private class CarpoolTask extends UrlJsonAsyncTask {
 
@@ -293,12 +296,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                         for(int i = 0; i <jCarpoolArray.length(); i++) {
                             JSONObject jobj = jCarpoolArray.getJSONObject(i);
+
+                            String start_date_str = jobj.getString("start_time");
+                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                            Date start_date = sdf.parse(start_date_str);
+                            String start = jobj.getString("start");
+                            String end = jobj.getString("end");
+                            String poster = jobj.getString("poster");
+                            Integer poster_id = jobj.getInt("poster_id");
+                            Integer now_person = jobj.getInt("current_user");
+                            Integer max_person = jobj.getInt("max_people");
+
+                            ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
+                            adapter.addItem(item);
                             //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
                             //mCarpoolList.add(j_pair);
                         }
 
                         //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
-
+                        listview.setAdapter(adapter);
                     }
 
 
