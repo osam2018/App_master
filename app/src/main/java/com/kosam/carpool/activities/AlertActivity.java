@@ -21,5 +21,6 @@ public class AlertActivity extends AppCompatActivity {
         adapter=new ListviewAdapter();
         alertList=(ListView)findViewById(R.id.carpool_list);
         alertList.setAdapter(adapter);
-}
+
+    }
 }

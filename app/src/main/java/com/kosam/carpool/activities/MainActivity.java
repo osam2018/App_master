@@ -25,14 +25,20 @@ import java.util.Date;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected static final String TAG = MainActivity.class.getSimpleName();
 
+    public static MainActivity thisActivity;
     private SharedPreferences mPreferences;
-
-    private NavigationView navigationView;
     private View mLayout;
-
-
+    //navigation view 연결
+    private NavigationView navigationView;
     private TextView NavUserName;
+    private TextView NavUserTopUnit;
+    private TextView NavUserUnitName;
+    private TextView NavUserEmail;
+    //ui참조
+    ListView listview;
+    FloatingActionButton carpoolMakeFab;
 
+    ListviewAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,28 +46,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        //컨텍스트 참조
+        thisActivity=this;
 
-        //initCollapsingToolbar();
+        //ui연결
+        listview=(ListView)findViewById(R.id.carpool_list);
+        carpoolMakeFab = (FloatingActionButton) findViewById(R.id.carpool_make_fab);
 
-        ListviewAdapter adapter=new ListviewAdapter();
-        ListView listview=(ListView)findViewById(R.id.carpool_list);
+        //리스트뷰에 어댑터 연결
+        adapter=new ListviewAdapter();
         listview.setAdapter(adapter);
-        adapter.addItem(new ListviewItem(new Date(123123),"부대","간부 아파트","정태훈",1,4));
-        adapter.addItem(new ListviewItem(new Date(123123),"간부아파트","부대","윤상운",1,4));
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.carpool_add_fab);
-        final Intent carpoolIntent=new Intent(this,CarpoolMakeActivity.class);
-        fab.setOnClickListener(new View.OnClickListener() {
+        //fab에 카풀 생성 액티비티 연결
+        carpoolMakeFab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(carpoolIntent);
+                Intent gotoMakeCarpool=new Intent(thisActivity,CarpoolMakeActivity.class);
+                startActivity(gotoMakeCarpool);
             }
         });
 
-        Intent i = getIntent();
-        if (!i.getBooleanExtra("auto",false)){
-            LoginActivity mPreActivity = (LoginActivity) LoginActivity.mThisActivity;
-            mPreActivity.finish();
+        Intent thisIntent = getIntent();
+        if (!thisIntent.getBooleanExtra("auto",false)){
+           LoginActivity.mThisActivity.finish();
         }
 
 
@@ -70,29 +77,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
-
-
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
-        View header = navigationView.getHeaderView(0);
-
-        NavUserName = (TextView) header.findViewById(R.id.nav_head_name);
-
-        NavUserName.setText(mPreferences.getString("Name","Save The Color"));
-
-
+        //navigation header 설정
+        NavUserName = (TextView) findViewById(R.id.nav_head_name);
+        NavUserTopUnit = (TextView) findViewById(R.id.nav_head_topunit);
+        NavUserUnitName = (TextView) findViewById(R.id.nav_head_unitname);
+        NavUserEmail = (TextView) findViewById(R.id.nav_head_email);
+        NavUserName.setText(mPreferences.getString("Name","ROCA"));
+        NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
+        NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
+        NavUserEmail.setText(mPreferences.getString("Email",""));
     }
 
 
@@ -129,17 +132,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
+        // 네비게이션뷰 선택 처리
         int id = item.getItemId();
 
         if (id == R.id.nav_alert) {
-            // Handle the camera action
-        } else if (id == R.id.nav_unit_info) {
+            // 알림함 연결
             Intent gotoAlert=new Intent(this,AlertActivity.class);
             startActivity(gotoAlert);
+        } else if (id == R.id.nav_unit_info) {
+            //부대 정보 연결
         } else if (id == R.id.nav_setting) {
+            //설정 연결
 
         } else if (id == R.id.nav_logout) {
+            //로그아웃
+            mPreferences.edit().clear().commit();
+            Intent goIntro = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(goIntro);
+            finish();
 
         }
 
@@ -147,7 +157,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+/*  옵션메뉴 삭제
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -179,5 +189,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
 }
