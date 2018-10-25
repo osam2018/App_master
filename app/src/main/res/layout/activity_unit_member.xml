@@ -22,6 +22,14 @@
 
     <include layout="@layout/content_unit_member" />
 
+    <ProgressBar
+        android:id="@+id/unit_progress"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone" />
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/unit_make"
         android:layout_width="wrap_content"
