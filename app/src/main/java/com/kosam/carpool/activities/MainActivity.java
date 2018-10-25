@@ -146,7 +146,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //부대 정보 연결
         } else if (id == R.id.nav_setting) {
             //설정 연결
-
         } else if (id == R.id.nav_logout) {
             //로그아웃
             mPreferences.edit().clear().commit();

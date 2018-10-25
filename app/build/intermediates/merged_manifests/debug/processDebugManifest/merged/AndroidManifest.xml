@@ -89,6 +89,10 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name="com.kosam.carpool.activities.CarpoolMakeActivity" />
         <activity android:name="com.kosam.carpool.activities.AlertActivity" />
+        <activity
+            android:name="com.kosam.carpool.activities.UnitInfoActivity"
+            android:label="@string/title_activity_unit_info"
+            android:theme="@style/AppTheme" />
 
         <meta-data
             android:name="android.support.VERSION"

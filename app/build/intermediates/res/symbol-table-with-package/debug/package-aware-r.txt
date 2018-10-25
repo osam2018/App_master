@@ -969,7 +969,6 @@ id always
 id appbar
 id async
 id auto
-id backdrop
 id barrier
 id beginning
 id blocking
@@ -1097,9 +1096,6 @@ id password_confirm
 id percent
 id phone
 id pin
-id profile_email
-id profile_image
-id profile_name
 id progress_circular
 id progress_horizontal
 id radio
@@ -1183,9 +1179,14 @@ id transition_scene_layoutid_cache
 id transition_transform
 id uniform
 id unit_category
+id unit_info_toolbar
+id unit_info_topUnit
+id unit_info_unitName
 id unit_list
+id unit_list_view
 id unit_make
 id unit_name
+id unit_progress
 id up
 id useLogo
 id using_car
@@ -1242,6 +1243,7 @@ layout activity_main
 layout activity_make_unit
 layout activity_sign_up
 layout activity_splash
+layout activity_unit_info
 layout activity_unit_member
 layout alert
 layout app_bar_main
@@ -1249,7 +1251,7 @@ layout carpool
 layout content_add_unit
 layout content_alert
 layout content_carpool_list
-layout content_main
+layout content_unit_info
 layout content_unit_member
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -1286,10 +1288,12 @@ layout select_dialog_item_material
 layout select_dialog_multichoice_material
 layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
+layout toolbar_unit_info
 layout tooltip
 menu activity_main_drawer
 menu main
 menu menu_intro
+menu unit_info_menu
 mipmap ic_launcher
 string abc_action_bar_home_description
 string abc_action_bar_home_description_format
@@ -1406,6 +1410,7 @@ string title_activity_login
 string title_activity_make_unit
 string title_activity_sign_up
 string title_activity_splash
+string title_activity_unit_info
 string unit_name
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light
