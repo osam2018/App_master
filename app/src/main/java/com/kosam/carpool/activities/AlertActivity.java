@@ -6,10 +6,11 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ListView;
 
 import com.kosam.carpool.R;
+import com.kosam.carpool.activities.classGroup.CarpoolAdapter;
 
 public class AlertActivity extends AppCompatActivity {
     private static ListView alertList;
-    private static ListviewAdapter adapter;
+    private static CarpoolAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,7 @@ public class AlertActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        adapter=new ListviewAdapter();
+        adapter=new CarpoolAdapter();
         alertList=(ListView)findViewById(R.id.carpool_list);
         alertList.setAdapter(adapter);
 

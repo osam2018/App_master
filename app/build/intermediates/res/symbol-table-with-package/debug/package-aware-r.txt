@@ -1186,7 +1186,6 @@ id unit_category
 id unit_info_toolbar
 id unit_info_topUnit
 id unit_info_unitName
-id unit_list
 id unit_list_view
 id unit_make
 id unit_name

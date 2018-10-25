@@ -17,8 +17,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.util.Pair;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -26,6 +24,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kosam.carpool.R;
+import com.kosam.carpool.activities.classGroup.CarpoolAdapter;
+import com.kosam.carpool.activities.classGroup.CarpoolListItem;
 import com.savagelook.android.UrlJsonAsyncTask;
 
 import org.apache.http.client.HttpResponseException;
@@ -65,7 +65,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ListView listview;
     FloatingActionButton carpoolMakeFab;
 
-    ListviewAdapter adapter;
+    CarpoolAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mProgressView = findViewById(R.id.unit_progress);
 
         //리스트뷰에 어댑터 연결
-        adapter=new ListviewAdapter();
+        adapter=new CarpoolAdapter();
 
 
         //fab에 카풀 생성 액티비티 연결
@@ -116,18 +116,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
-
-        //Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
+        View NavHeader = navigationView.getHeaderView(0);
+;
+       Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
 
         //navigation header 설정
-        NavUserName = (TextView) findViewById(R.id.nav_head_name);
-        NavUserTopUnit = (TextView) findViewById(R.id.nav_head_topunit);
-        NavUserUnitName = (TextView) findViewById(R.id.nav_head_unitname);
-        NavUserEmail = (TextView) findViewById(R.id.nav_head_email);
-        NavUserName.setText(mPreferences.getString("Name","ROCA"));
-        NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
-        NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
-        NavUserEmail.setText(mPreferences.getString("Email",""));
+        NavUserName = (TextView) NavHeader.findViewById(R.id.nav_head_name);
+        Log.e("T1",NavUserName.getText().toString());
+        NavUserTopUnit = (TextView) NavHeader.findViewById(R.id.nav_head_topunit);
+        Log.e("T2",NavUserTopUnit.getText().toString());
+        NavUserUnitName = (TextView) NavHeader.findViewById(R.id.nav_head_unitname);
+        Log.e("T3",NavUserUnitName.getText().toString());
+        NavUserEmail = (TextView) NavHeader.findViewById(R.id.nav_head_email);
+        Log.e("T4",NavUserEmail.getText().toString());
+        //NavUserName.setText(mPreferences.getString("Name","ROCA"));
+        //NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
+       // NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
+        //NavUserEmail.setText(mPreferences.getString("Email","army.mil"));
 
         //카풀 리스트뷰 연결
 
@@ -306,7 +311,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             Integer now_person = jobj.getInt("current_user");
                             Integer max_person = jobj.getInt("max_people");
 
-                            ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
+                            CarpoolListItem item = new CarpoolListItem(start_date, start,end,poster,poster_id, now_person, max_person);
                             adapter.addItem(item);
                             //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
                             //mCarpoolList.add(j_pair);
