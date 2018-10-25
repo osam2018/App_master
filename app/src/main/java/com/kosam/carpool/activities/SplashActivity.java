@@ -39,18 +39,18 @@ public class SplashActivity extends AppCompatActivity {
                     Intent goLogin = new Intent(SplashActivity.this,LoginActivity.class);
                     startActivity(goLogin);
                     finish();
-                } else {
+                } else {/*
 
                     if (mPreferences.getInt("UnitId",-1) == -1) {
                         Intent intent = new Intent(SplashActivity.this, UnitMemberActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {
+                    } else {*/
                         Intent goMain = new Intent(SplashActivity.this,MainActivity.class);
                         goMain.putExtra("auto",true);
                         startActivity(goMain);
                         finish();
-                    }
+                   // }
 
                 }
 

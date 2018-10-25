@@ -118,21 +118,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.bringToFront();
         View NavHeader = navigationView.getHeaderView(0);
 ;
-       Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
 
         //navigation header 설정
         NavUserName = (TextView) NavHeader.findViewById(R.id.nav_head_name);
-        Log.e("T1",NavUserName.getText().toString());
         NavUserTopUnit = (TextView) NavHeader.findViewById(R.id.nav_head_topunit);
-        Log.e("T2",NavUserTopUnit.getText().toString());
         NavUserUnitName = (TextView) NavHeader.findViewById(R.id.nav_head_unitname);
-        Log.e("T3",NavUserUnitName.getText().toString());
         NavUserEmail = (TextView) NavHeader.findViewById(R.id.nav_head_email);
-        Log.e("T4",NavUserEmail.getText().toString());
-        //NavUserName.setText(mPreferences.getString("Name","ROCA"));
-        //NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
-       // NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
-        //NavUserEmail.setText(mPreferences.getString("Email","army.mil"));
+        NavUserName.setText(mPreferences.getString("Name","ROCA"));
+        NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
+        NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
+        NavUserEmail.setText(mPreferences.getString("Email","army.mil"));
 
         //카풀 리스트뷰 연결
 

@@ -957,6 +957,7 @@ id addcarpool_button
 id adjust_height
 id adjust_width
 id alertTitle
+id alert_layout
 id alert_list
 id alert_name
 id alert_no
@@ -1067,6 +1068,9 @@ id make_unit_form
 id make_unit_progress
 id masked
 id media_actions
+id menu_unit_info_dispose
+id menu_unit_info_name_change
+id menu_unit_info_sign_out
 id message
 id middle
 id mini
@@ -1183,9 +1187,12 @@ id transition_scene_layoutid_cache
 id transition_transform
 id uniform
 id unit_category
+id unit_info_havecar
+id unit_info_phone
 id unit_info_toolbar
 id unit_info_topUnit
 id unit_info_unitName
+id unit_info_username
 id unit_list_view
 id unit_make
 id unit_name
@@ -1293,6 +1300,8 @@ layout select_dialog_singlechoice_material
 layout support_simple_spinner_dropdown_item
 layout toolbar_unit_info
 layout tooltip
+layout unit
+layout unit_info
 menu activity_main_drawer
 menu main
 menu menu_intro
@@ -1384,6 +1393,9 @@ string menu_chat
 string menu_logout
 string menu_setting
 string menu_unit_info
+string menu_unit_info_dispose
+string menu_unit_info_name_change
+string menu_unit_info_sign_out
 string menu_unit_list
 string nav_head_text
 string navigation_drawer_close
@@ -1417,6 +1429,7 @@ string title_activity_make_unit
 string title_activity_sign_up
 string title_activity_splash
 string title_activity_unit_info
+string title_carpool_make
 string unit_name
 style AlertDialog_AppCompat
 style AlertDialog_AppCompat_Light

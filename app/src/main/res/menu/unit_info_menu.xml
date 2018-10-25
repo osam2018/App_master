@@ -2,6 +2,13 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item android:title="Item" />
-    <item android:title="Item" />
+    <item
+        android:id="@+id/menu_unit_info_sign_out"
+        android:title="@string/menu_unit_info_sign_out" />
+    <item
+        android:id="@+id/menu_unit_info_name_change"
+        android:title="@string/menu_unit_info_name_change" />
+    <item
+        android:id="@+id/menu_unit_info_dispose"
+        android:title="@string/menu_unit_info_dispose" />
 </menu>

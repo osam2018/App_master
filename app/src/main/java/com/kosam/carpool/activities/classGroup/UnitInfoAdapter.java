@@ -13,8 +13,8 @@ import java.util.ArrayList;
 
 import kotlin.Unit;
 
-public  class AlertAdapter extends BaseAdapter {
-    private ArrayList<AlertListItem> ItemList=new ArrayList<AlertListItem>();
+public  class UnitInfoAdapter extends BaseAdapter {
+    private ArrayList<UnitInfoListItem> ItemList=new ArrayList<UnitInfoListItem>();
     public int getCount(){
         return ItemList.size();
     }
@@ -25,22 +25,21 @@ public  class AlertAdapter extends BaseAdapter {
         // "listview_item" Layout을 inflate하여 convertView 참조 획득.
         if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.alert, parent, false);
+            convertView = inflater.inflate(R.layout.unit_info, parent, false);
         }
 
         // 화면에 표시될 View(Layout이 inflate된)으로부터 위젯에 대한 참조 획득
-        TextView SenderName = (TextView) convertView.findViewById(R.id.alert_name) ;
-        TextView AlertType = (TextView) convertView.findViewById(R.id.alert_type) ;
+        TextView UserName = (TextView) convertView.findViewById(R.id.unit_info_username) ;
+        TextView Phone = (TextView) convertView.findViewById(R.id.unit_info_phone) ;
+        TextView HaveCar = (TextView) convertView.findViewById(R.id.unit_info_havecar) ;
 
         // Data Set(listViewItemList)에서 position에 위치한 데이터 참조 획득
-        AlertListItem listViewItem = ItemList.get(position);
+        UnitInfoListItem listViewItem = ItemList.get(position);
 
         // 아이템 내 각 위젯에 데이터 반영
-        SenderName.setText(listViewItem.getSenderName());
-        if(listViewItem.getType()==0)
-            AlertType.setText("가입 신청");
-        else
-            AlertType.setText("카풀 신정");
+        UserName.setText(listViewItem.getUserName());
+        Phone.setText(listViewItem.getPhone());
+        HaveCar.setText(listViewItem.getHaveCar()?"자차 보유":"자차 미보유");
 
         return convertView;
     }
@@ -57,10 +56,7 @@ public  class AlertAdapter extends BaseAdapter {
     }
 
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
-    public void addItem(AlertListItem item) {
+    public void addItem(UnitInfoListItem item) {
         ItemList.add(item);
-    }
-    public void clear(){
-        ItemList.clear();
     }
 }

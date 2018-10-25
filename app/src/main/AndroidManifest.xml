@@ -63,7 +63,8 @@
             android:name=".activities.AddUnitActivity"
             android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.CarpoolMakeActivity" />
+        <activity android:name=".activities.CarpoolMakeActivity"
+            android:label="@string/title_carpool_make"/>
         <activity android:name=".activities.AlertActivity" />
         <activity
             android:name=".activities.UnitInfoActivity"
