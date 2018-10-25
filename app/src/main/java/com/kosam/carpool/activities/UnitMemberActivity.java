@@ -13,10 +13,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.util.Pair;
+import android.view.Menu;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.kosam.carpool.R;
+import com.kosam.carpool.activities.classGroup.UnitAdapter;
+import com.kosam.carpool.activities.classGroup.UnitListItem;
 import com.savagelook.android.UrlJsonAsyncTask;
 
 import org.apache.http.client.HttpResponseException;
@@ -36,13 +41,15 @@ import java.util.List;
 import java.util.Map;
 
 public class UnitMemberActivity extends AppCompatActivity {
-    List<Pair> mUnitList = new ArrayList<Pair>();
+    private UnitMemberActivity thisActivity;
+    List<UnitListItem> mUnitList;
+    UnitAdapter adapter;
     private UnitMemberActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
     private String mURL = "https://kosam-app-server.run.goorm.io/api/units/show";
 
     private View mProgressView;
-    private View mUnitListView;
+    private ListView mUnitListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +58,8 @@ public class UnitMemberActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        thisActivity=this;
+        mUnitList = new ArrayList<UnitListItem>();
         mUnitListView = findViewById(R.id.unit_list_view);
         mProgressView = findViewById(R.id.unit_progress);
 
@@ -58,6 +67,9 @@ public class UnitMemberActivity extends AppCompatActivity {
 
         mUnitTask = new UnitMemberActivity.UnitTask(this);
         mUnitTask.execute(mURL);
+        adapter=new UnitAdapter();
+        mUnitListView.setAdapter(adapter);
+
 
         FloatingActionButton makeUnitBtn = (FloatingActionButton) findViewById(R.id.unit_make);
         final Intent i=new Intent(this,makeUnitActivity.class);
@@ -68,6 +80,7 @@ public class UnitMemberActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private class UnitTask extends UrlJsonAsyncTask {
 
@@ -136,15 +149,14 @@ public class UnitMemberActivity extends AppCompatActivity {
                     // the SharedPreferences
                     JSONArray jUnitArray = json.getJSONObject("data").getJSONArray("unit");
                     if(jUnitArray != null) {
-
+                        mUnitList.clear();
                         for(int i = 0; i <jUnitArray.length(); i++) {
                             JSONObject jobj = jUnitArray.getJSONObject(i);
-                            Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
+                            UnitListItem j_pair = new UnitListItem(jobj.getString("unit_name"), jobj.getInt("id"));
                             mUnitList.add(j_pair);
                         }
-
-                        //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
-
+                        mUnitList.add(new UnitListItem("3포병여단",1));
+                        adapter.refresh(mUnitList);
                     }
 
 
@@ -169,7 +181,15 @@ public class UnitMemberActivity extends AppCompatActivity {
         }
 
     }
-
+    private  void refreshList(){
+        mUnitTask.execute(mURL);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow

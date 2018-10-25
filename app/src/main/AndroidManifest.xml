@@ -32,7 +32,7 @@
         <activity
             android:name=".activities.UnitMemberActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <!--
         <activity
             android:name="com.suri.abcbike.activities.UnitMemberActivity"
@@ -66,8 +66,13 @@
             android:name=".activities.AddUnitActivity"
             android:label="@string/title_activity_add_unit"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".activities.CarpoolMakeActivity" />
-        <activity android:name=".activities.AlertActivity"></activity>
+        <activity android:name=".activities.CarpoolMakeActivity"
+            android:label="@string/title_carpool_make"/>
+        <activity android:name=".activities.AlertActivity" />
+        <activity
+            android:name=".activities.UnitInfoActivity"
+            android:label="@string/title_activity_unit_info"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

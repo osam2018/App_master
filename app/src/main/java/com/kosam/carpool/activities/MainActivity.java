@@ -19,8 +19,6 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
-import android.util.Pair;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -28,6 +26,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.kosam.carpool.R;
+import com.kosam.carpool.activities.classGroup.CarpoolAdapter;
+import com.kosam.carpool.activities.classGroup.CarpoolListItem;
 import com.savagelook.android.UrlJsonAsyncTask;
 
 import org.apache.http.client.HttpResponseException;
@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     ListView listview;
     FloatingActionButton carpoolMakeFab;
 
-    ListviewAdapter adapter;
+    CarpoolAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mProgressView = findViewById(R.id.carpool_progress);
 
         //리스트뷰에 어댑터 연결
-        adapter=new ListviewAdapter();
+        adapter=new CarpoolAdapter();
 
 
         //fab에 카풀 생성 액티비티 연결
@@ -120,6 +120,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
+        View NavHeader = navigationView.getHeaderView(0);
+;
+
 
         Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
         View header = navigationView.getHeaderView(0);
@@ -132,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
         NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
         NavUserEmail.setText(mPreferences.getString("Email","test@test.com"));
+
 
         mCarpoolTask = new MainActivity.CarpoolTask(this);
         mCarpoolTask.execute(mURL);
@@ -228,7 +232,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             //부대 정보 연결
         } else if (id == R.id.nav_setting) {
             //설정 연결
-
         } else if (id == R.id.nav_logout) {
             //로그아웃
             mPreferences.edit().clear().commit();
@@ -242,7 +245,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -274,7 +277,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
 
     private class CarpoolTask extends UrlJsonAsyncTask {
 
@@ -349,9 +352,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             Integer poster_id = jobj.getInt("poster_id");
                             Integer now_person = jobj.getInt("current_user");
                             Integer max_person = jobj.getInt("max_people");
+
                             Log.e("Data", start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString());
                             Toast.makeText(context, start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString(), Toast.LENGTH_LONG).show();
-                            ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
+                            //ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
+
+                            CarpoolListItem item = new CarpoolListItem(start_date, start,end,poster,poster_id, now_person, max_person);
+
                             adapter.addItem(item);
                             //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
                             //mCarpoolList.add(j_pair);

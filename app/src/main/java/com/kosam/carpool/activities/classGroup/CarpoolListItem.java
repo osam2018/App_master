@@ -1,9 +1,9 @@
-package com.kosam.carpool.activities;
+package com.kosam.carpool.activities.classGroup;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class ListviewItem {
+public class CarpoolListItem {
     private Date startTime;
     private String start;
     private String end;
@@ -47,7 +47,7 @@ public class ListviewItem {
         return this.maxPerson;
     }
     public String getMax(){return String.format("%d/%d명",this.nowPerson,this.maxPerson);}
-    public  ListviewItem(){
+    public  CarpoolListItem(){
         this.startTime=null;
         this.start=null;
         this.end=null;
@@ -56,7 +56,7 @@ public class ListviewItem {
         this.maxPerson=0;
         this.posterId=0;
     }
-    private  ListviewItem(Date d,String s,String e,String p,int n,int m){
+    private  CarpoolListItem(Date d,String s,String e,String p,int n,int m){
         this.startTime=d;
         this.start=s;
         this.end=e;
@@ -64,7 +64,7 @@ public class ListviewItem {
         this.nowPerson=n;
         this.maxPerson=m;
     }
-    public  ListviewItem(Date d,String s,String e,String p,int pid,int n,int m){
+    public  CarpoolListItem(Date d,String s,String e,String p,int pid,int n,int m){
         this(d,s,e,p,n,m);
         this.posterId=pid;
     }

@@ -38,6 +38,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 
 public class makeUnitActivity extends AppCompatActivity {
@@ -45,10 +46,12 @@ public class makeUnitActivity extends AppCompatActivity {
     private makeUnitActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
 
+    //ui 참조
     Spinner mSpinner;
     ArrayAdapter sAdapter;
-    String[] item;
+    ArrayList<String> item;
     EditText mUnitName;
+
     private View mProgressView;
     private View mMakeUnitFormView;
     public static Activity mThisActivity;
@@ -62,10 +65,13 @@ public class makeUnitActivity extends AppCompatActivity {
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
 
-        item = getResources().getStringArray(R.array.unit_head);
+        item = new ArrayList<String>();
+        for(String s : getResources().getStringArray(R.array.unit_head))
+            item.add(s);
         mSpinner = (Spinner) findViewById(R.id.unit_category);
         sAdapter = new ArrayAdapter(this,R.layout.support_simple_spinner_dropdown_item,item);
         mSpinner.setAdapter(sAdapter);
+        mSpinner.setSelection(item.indexOf(mPreferences.getString("TopUnit","육군 본부")));
 
         mUnitName = (EditText) findViewById(R.id.unit_name);
         mUnitName.setOnEditorActionListener(new TextView.OnEditorActionListener() {
