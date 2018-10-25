@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -38,6 +40,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -47,7 +50,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected static final String TAG = MainActivity.class.getSimpleName();
 
     private MainActivity.CarpoolTask mCarpoolTask = null;
-    private String mURL = "https://kosam-app-server.run.goorm.io/api/carpools";
+    private String mURL = "https://kosam-app-server.run.goorm.io/api/carpools/index";
+    private static final String ARG_PARAM1 = "param1";
 
     private View mProgressView;
     private View mCarpoolListView;
@@ -57,10 +61,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private View mLayout;
     //navigation view 연결
     private NavigationView navigationView;
-    private TextView NavUserName;
-    private TextView NavUserTopUnit;
-    private TextView NavUserUnitName;
-    private TextView NavUserEmail;
+    //private TextView NavUserName;
+    //private TextView NavUserTopUnit;
+    //private TextView NavUserUnitName;
+    //private TextView NavUserEmail;
     //ui참조
     ListView listview;
     FloatingActionButton carpoolMakeFab;
@@ -81,7 +85,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         carpoolMakeFab = (FloatingActionButton) findViewById(R.id.carpool_make_fab);
 
         mCarpoolListView = findViewById(R.id.carpool_list_view);
-        mProgressView = findViewById(R.id.unit_progress);
+        mProgressView = findViewById(R.id.carpool_progress);
 
         //리스트뷰에 어댑터 연결
         adapter=new ListviewAdapter();
@@ -118,21 +122,67 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.bringToFront();
 
         Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
-/*
+        View header = navigationView.getHeaderView(0);
         //navigation header 설정
-        NavUserName = (TextView) findViewById(R.id.nav_head_name);
-        NavUserTopUnit = (TextView) findViewById(R.id.nav_head_topunit);
-        NavUserUnitName = (TextView) findViewById(R.id.nav_head_unitname);
-        NavUserEmail = (TextView) findViewById(R.id.nav_head_email);
-        NavUserName.setText(mPreferences.getString("Name","ROCA"));
+        TextView NavUserName = (TextView) header.findViewById(R.id.nav_head_name);
+        TextView NavUserTopUnit = (TextView) header.findViewById(R.id.nav_head_topunit);
+        TextView NavUserUnitName = (TextView) header.findViewById(R.id.nav_head_unitname);
+        TextView NavUserEmail = (TextView) header.findViewById(R.id.nav_head_email);
+        NavUserName.setText(mPreferences.getString("Name","ROCA") );
         NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
         NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
-        NavUserEmail.setText(mPreferences.getString("Email",""));
-*/
-        //카풀 리스트뷰 연결
+        NavUserEmail.setText(mPreferences.getString("Email","test@test.com"));
 
+        mCarpoolTask = new MainActivity.CarpoolTask(this);
+        mCarpoolTask.execute(mURL);
+
+        if ( isExternalStorageWritable() ) {
+
+            File appDirectory = new File( Environment.getExternalStorageDirectory() + "/com.kosam.carpool" );
+            File logDirectory = new File( appDirectory + "/log" );
+            File logFile = new File( logDirectory, "logcat" + System.currentTimeMillis() + ".txt" );
+
+            // create app folder
+            if ( !appDirectory.exists() ) {
+                appDirectory.mkdir();
+            }
+
+            // create log folder
+            if ( !logDirectory.exists() ) {
+                logDirectory.mkdir();
+            }
+
+            // clear the previous logcat and then write the new one to the file
+            try {
+                Process process = Runtime.getRuntime().exec("logcat -c");
+                process = Runtime.getRuntime().exec("logcat -f " + logFile);
+            } catch ( IOException e ) {
+                e.printStackTrace();
+            }
+
+        } else if ( isExternalStorageReadable() ) {
+            // only readable
+        } else {
+            // not accessible
+        }
+    }
+    public boolean isExternalStorageWritable() {
+        String state = Environment.getExternalStorageState();
+        if ( Environment.MEDIA_MOUNTED.equals( state ) ) {
+            return true;
+        }
+        return false;
     }
 
+    /* Checks if external storage is available to at least read */
+    public boolean isExternalStorageReadable() {
+        String state = Environment.getExternalStorageState();
+        if ( Environment.MEDIA_MOUNTED.equals( state ) ||
+                Environment.MEDIA_MOUNTED_READ_ONLY.equals( state ) ) {
+            return true;
+        }
+        return false;
+    }
 
 
     @Override
@@ -243,7 +293,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             String response = null;
             JSONObject json = new JSONObject();
 
-            try {
                 try {
                     // setup the returned values in case
                     // something goes wrong
@@ -251,8 +300,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     json.put("info", "Something went wrong.");
                     // add the user email and password to
                     // the params
-                    carpoolObj.put("auth_token", mPreferences.getString("AuthToken",""));
-                    holder.put("carpool", carpoolObj);
+                    holder.put("auth_token", mPreferences.getString("AuthToken",""));
                     StringEntity se = new StringEntity(holder.toString());
                     post.setEntity(se);
 
@@ -267,20 +315,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 } catch (HttpResponseException e) {
                     e.printStackTrace();
                     Log.e("ClientProtocol", "" + e);
-                    json.put("info", "Email and/or password are invalid.");
+                    //json.put("info", "Email and/or password are invalid.");
                 } catch (IOException e) {
                     e.printStackTrace();
                     Log.e("IO", "" + e);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
-                Log.e("JSON", "" + e);
-            }
-
             return json;
-        }
+            }
 
         @Override
         protected void onPostExecute(JSONObject json) {
@@ -306,7 +349,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             Integer poster_id = jobj.getInt("poster_id");
                             Integer now_person = jobj.getInt("current_user");
                             Integer max_person = jobj.getInt("max_people");
-
+                            Log.e("Data", start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString());
+                            Toast.makeText(context, start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString(), Toast.LENGTH_LONG).show();
                             ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
                             adapter.addItem(item);
                             //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
@@ -337,8 +381,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mCarpoolTask = null;
             showProgress(false);
         }
-
     }
+
+
+
 
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private void showProgress(final boolean show) {

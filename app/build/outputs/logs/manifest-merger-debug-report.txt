@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\3fbe2741919d5c55fdd2101d0f5ac3ae\AndroidManifest.xml:2:1-9:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\87abf8aeb2dd683983cc641e9cbae6ff\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\017d9ed957517303fc047bc6cab695a6\AndroidManifest.xml:17:1-31:12
@@ -41,25 +41,25 @@ MERGED from [com.firebase:firebase-jobdispatcher:0.8.5] C:\Users\USER\.gradle\ca
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\823ba09d485c8436eac66dcdae25da9c\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\033813927d605025f64488f99eed4e46\AndroidManifest.xml:2:1-9:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\4e73183a359b2f979b327b3d3ccefbf2\AndroidManifest.xml:17:1-30:12
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
 	package
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:3:5-32
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:3:5-32
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 	android:versionName
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 	android:versionCode
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:1-70:12
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:1-73:12
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:2:11-69
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:2:11-69
 uses-permission#android.permission.INTERNET
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:5:5-67
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:5:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\5c9a0355bc990a02cac49167a4326e0d\AndroidManifest.xml:24:5-67
 MERGED from [com.google.android.gms:play-services-maps:16.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\play-services-maps-16.0.0.aar\5c9a0355bc990a02cac49167a4326e0d\AndroidManifest.xml:24:5-67
 MERGED from [com.google.firebase:firebase-measurement-connector-impl:17.0.2] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-measurement-connector-impl-17.0.2.aar\5e7a3fb1705f3e640aace47ece9c7b2d\AndroidManifest.xml:22:5-67
@@ -71,17 +71,29 @@ MERGED from [com.google.firebase:firebase-analytics-impl:16.2.2] C:\Users\USER\.
 MERGED from [com.google.firebase:firebase-iid:17.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.4.aar\60f5be7f2726c0feb5e82c5724ab029a\AndroidManifest.xml:23:5-67
 MERGED from [com.google.firebase:firebase-iid:17.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-iid-17.0.4.aar\60f5be7f2726c0feb5e82c5724ab029a\AndroidManifest.xml:23:5-67
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:5:22-64
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:5:22-64
 uses-permission#android.permission.ACCESS_FINE_LOCATION
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:6:5-79
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:6:5-79
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:6:22-76
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:6:22-76
 uses-permission#android.permission.ACCESS_COARSE_LOCATION
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:7:5-81
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:7:5-81
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:7:22-78
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:7:22-78
+uses-permission#android.permission.READ_LOGS
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:8:5-68
+	android:name
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:8:22-65
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:9:22-78
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:10:22-77
 application
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:9:5-68:19
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:12:5-71:19
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\3fbe2741919d5c55fdd2101d0f5ac3ae\AndroidManifest.xml:7:5-20
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\3fbe2741919d5c55fdd2101d0f5ac3ae\AndroidManifest.xml:7:5-20
 MERGED from [com.android.support:design:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\87abf8aeb2dd683983cc641e9cbae6ff\AndroidManifest.xml:25:5-29:19
@@ -157,99 +169,99 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Us
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\4e73183a359b2f979b327b3d3ccefbf2\AndroidManifest.xml:24:5-28:19
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\4e73183a359b2f979b327b3d3ccefbf2\AndroidManifest.xml:24:5-28:19
 	android:supportsRtl
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:13:9-35
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:16:9-35
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:12:9-41
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:15:9-41
 	android:icon
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:11:9-38
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:14:9-38
 	android:allowBackup
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:10:9-35
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:13:9-35
 	android:theme
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:14:9-40
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:17:9-40
 meta-data#com.google.android.geo.API_KEY
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:15:9-17:71
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:18:9-20:71
 	android:value
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:17:13-68
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:20:13-68
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:16:13-58
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:19:13-58
 activity#com.kosam.carpool.activities.MainActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:19:9-22:48
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:22:9-25:48
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:22:13-45
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:25:13-45
 	android:hardwareAccelerated
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:21:13-47
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:24:13-47
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:20:13-52
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:23:13-52
 activity#com.kosam.carpool.activities.LoginActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:23:9-25:60
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:26:9-28:60
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:25:13-57
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:28:13-57
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:24:13-53
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:27:13-53
 activity#com.kosam.carpool.activities.makeUnitActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:26:9-28:64
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:29:9-31:64
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:28:13-61
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:31:13-61
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:27:13-56
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:30:13-56
 activity#com.kosam.carpool.activities.UnitMemberActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:29:9-32:68
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:32:9-35:68
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:31:13-45
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:34:13-45
 	android:theme
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:32:13-56
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:35:13-56
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:30:13-58
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:33:13-58
 activity#com.kosam.carpool.activities.SplashActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:46:9-54:20
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:49:9-57:20
 	android:theme
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:48:13-56
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:51:13-56
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:47:13-54
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:50:13-54
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:49:13-53:29
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:52:13-56:29
 action#android.intent.action.MAIN
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:50:17-69
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:53:17-69
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:50:25-66
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:53:25-66
 category#android.intent.category.LAUNCHER
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:52:17-77
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:55:17-77
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:52:27-74
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:55:27-74
 activity#com.kosam.carpool.activities.IntroActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:55:9-58:59
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:58:9-61:59
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:57:13-57
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:60:13-57
 	android:theme
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:58:13-56
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:61:13-56
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:56:13-53
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:59:13-53
 activity#com.kosam.carpool.activities.SignUpActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:59:9-61:62
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:62:9-64:62
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:61:13-59
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:64:13-59
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:60:13-54
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:63:13-54
 activity#com.kosam.carpool.activities.AddUnitActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:62:9-65:59
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:65:9-68:59
 	android:label
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:64:13-60
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:67:13-60
 	android:theme
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:65:13-56
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:68:13-56
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:63:13-55
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:66:13-55
 activity#com.kosam.carpool.activities.CarpoolMakeActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:66:9-68
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:69:9-68
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:66:19-65
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:69:19-65
 activity#com.kosam.carpool.activities.AlertActivity
-ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:67:9-71
+ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:70:9-71
 	android:name
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml:67:19-59
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml:70:19-59
 uses-sdk
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\3fbe2741919d5c55fdd2101d0f5ac3ae\AndroidManifest.xml:5:5-44
 MERGED from [com.google.firebase:firebase-core:16.0.4] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\firebase-core-16.0.4.aar\3fbe2741919d5c55fdd2101d0f5ac3ae\AndroidManifest.xml:5:5-44
 MERGED from [com.android.support:design:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\87abf8aeb2dd683983cc641e9cbae6ff\AndroidManifest.xml:21:5-23:62
@@ -324,18 +336,18 @@ MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Us
 MERGED from [com.google.android.gms:play-services-measurement-base:16.0.3] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\play-services-measurement-base-16.0.3.aar\033813927d605025f64488f99eed4e46\AndroidManifest.xml:5:5-44
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\4e73183a359b2f979b327b3d3ccefbf2\AndroidManifest.xml:20:5-22:41
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\4e73183a359b2f979b327b3d3ccefbf2\AndroidManifest.xml:20:5-22:41
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\87abf8aeb2dd683983cc641e9cbae6ff\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		ADDED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
-		INJECTED from C:\Users\USER\Desktop\carpool2\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		ADDED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
+		INJECTED from C:\Users\USER\Desktop\carpool\app\src\main\AndroidManifest.xml
 meta-data#android.support.VERSION
 ADDED from [com.android.support:design:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\87abf8aeb2dd683983cc641e9cbae6ff\AndroidManifest.xml:26:9-28:38
 MERGED from [com.android.support:appcompat-v7:26.1.0] C:\Users\USER\.gradle\caches\transforms-1\files-1.1\appcompat-v7-26.1.0.aar\017d9ed957517303fc047bc6cab695a6\AndroidManifest.xml:26:9-28:38
