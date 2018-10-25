@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserUnitName = (TextView) NavHeader.findViewById(R.id.nav_head_unitname);
         NavUserEmail = (TextView) NavHeader.findViewById(R.id.nav_head_email);
         NavUserName.setText(mPreferences.getString("Name","ROCA"));
-        NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
+        NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군 본부"));
         NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
         NavUserEmail.setText(mPreferences.getString("Email","army.mil"));
 

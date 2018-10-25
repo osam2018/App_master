@@ -40,7 +40,7 @@ public class AlertListItem {
         this.SenderName=null;
         this.TakerId=0;
     }
-    private  AlertListItem(int aid,int type,int sid,String sn,int tid){
+    public AlertListItem(int aid,int type,int sid,String sn,int tid){
         this.AlertId=aid;
         this.Type=type;
         this.SenderId=sid;

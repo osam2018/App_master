@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.kosam.carpool.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kotlin.Unit;
 
@@ -54,5 +55,11 @@ public  class UnitAdapter extends BaseAdapter {
     // 아이템 데이터 추가를 위한 함수. 개발자가 원하는대로 작성 가능.
     public void addItem(UnitListItem item) {
         ItemList.add(item);
+    }
+    public  void refresh(List<UnitListItem> items){
+        ItemList.clear();
+        for(UnitListItem i:items)
+            ItemList.add(i);
+        this.notifyDataSetChanged();
     }
 }

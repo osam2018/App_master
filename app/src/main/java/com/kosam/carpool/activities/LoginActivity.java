@@ -289,7 +289,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     editor.putString("Phone", json.getJSONObject("data").getString("phone"));
                     editor.putBoolean("UsingCar", json.getJSONObject("data").getBoolean("using_car"));
 
-                    if (false/*json.getJSONObject("data").getInt("unit_id") == -1*/) {
+                    if (json.getJSONObject("data").getInt("unit_id") == -1) {
                         editor.putInt("UnitId", -1);
                         editor.apply();
                         Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);

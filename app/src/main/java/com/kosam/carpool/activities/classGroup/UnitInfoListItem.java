@@ -37,7 +37,7 @@ public class UnitInfoListItem {
         this.UserId=0;
         this.HaveCar=false;
     }
-    private  UnitInfoListItem(String username,String phone,int uid,boolean havecar){
+    public  UnitInfoListItem(String username,String phone,int uid,boolean havecar){
         this.UserName=username;
         this.Phone=phone;
         this.UserId=uid;

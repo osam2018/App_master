@@ -20,6 +20,8 @@ import android.widget.ListView;
 import android.widget.Toast;
 
 import com.kosam.carpool.R;
+import com.kosam.carpool.activities.classGroup.UnitAdapter;
+import com.kosam.carpool.activities.classGroup.UnitListItem;
 import com.savagelook.android.UrlJsonAsyncTask;
 
 import org.apache.http.client.HttpResponseException;
@@ -40,9 +42,8 @@ import java.util.Map;
 
 public class UnitMemberActivity extends AppCompatActivity {
     private UnitMemberActivity thisActivity;
-    List<Pair> mUnitList;
-    ArrayList<String> items;
-    ArrayAdapter adapter;
+    List<UnitListItem> mUnitList;
+    UnitAdapter adapter;
     private UnitMemberActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
     private String mURL = "https://kosam-app-server.run.goorm.io/api/units/show";
@@ -58,8 +59,7 @@ public class UnitMemberActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         thisActivity=this;
-        mUnitList = new ArrayList<Pair>();
-        items=new ArrayList();
+        mUnitList = new ArrayList<UnitListItem>();
         mUnitListView = findViewById(R.id.unit_list_view);
         mProgressView = findViewById(R.id.unit_progress);
 
@@ -67,7 +67,7 @@ public class UnitMemberActivity extends AppCompatActivity {
 
         mUnitTask = new UnitMemberActivity.UnitTask(this);
         mUnitTask.execute(mURL);
-        adapter=new ArrayAdapter(thisActivity,android.R.layout.simple_list_item_1,items);
+        adapter=new UnitAdapter();
         mUnitListView.setAdapter(adapter);
 
 
@@ -80,6 +80,7 @@ public class UnitMemberActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private class UnitTask extends UrlJsonAsyncTask {
 
@@ -151,10 +152,11 @@ public class UnitMemberActivity extends AppCompatActivity {
                         mUnitList.clear();
                         for(int i = 0; i <jUnitArray.length(); i++) {
                             JSONObject jobj = jUnitArray.getJSONObject(i);
-                            Pair<Integer,String> j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
+                            UnitListItem j_pair = new UnitListItem(jobj.getString("unit_name"), jobj.getInt("id"));
                             mUnitList.add(j_pair);
-                            items.add(j_pair.second);
                         }
+                        mUnitList.add(new UnitListItem("3포병여단",1));
+                        adapter.refresh(mUnitList);
                     }
 
 
@@ -181,7 +183,6 @@ public class UnitMemberActivity extends AppCompatActivity {
     }
     private  void refreshList(){
         mUnitTask.execute(mURL);
-        adapter.notifyDataSetChanged();
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
