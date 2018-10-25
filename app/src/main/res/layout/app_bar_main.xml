@@ -7,7 +7,7 @@
     android:background="@android:color/white">
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/carpool_add_fab"
+        android:id="@+id/carpool_make_fab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
@@ -46,7 +46,7 @@
         </android.support.design.widget.AppBarLayout>
 
 
-    <include layout="@layout/content_carpool_list_ativity" />
+    <include layout="@layout/content_carpool_list" />
 
 
 

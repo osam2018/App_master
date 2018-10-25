@@ -67,6 +67,7 @@
 
     <string name="title_activity_add_unit">AddUnitActivity</string>
     <string name="title_activity_carpool_list_ativity">CarpoolListAtivity</string>
+    <string name="title_activity_alert">알림함</string>
     <string name="lvItem_start">출발</string>
     <string name="lvItem_end">도착</string>
 </resources>

@@ -2,6 +2,7 @@
 
 <resources>
     <string-array name="unit_head">
+        <item>육군본부</item>
         <item>1야전군사령부</item>
         <item>2작전사령부</item>
         <item>3야전군사령부</item>

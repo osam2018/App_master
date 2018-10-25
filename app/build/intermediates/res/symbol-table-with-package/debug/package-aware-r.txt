@@ -977,9 +977,9 @@ id bottom
 id btn_signup
 id buttonPanel
 id cancel_action
-id carpool_add_fab
 id carpool_end
 id carpool_list
+id carpool_make_fab
 id carpool_max
 id carpool_poster
 id carpool_start
@@ -1072,8 +1072,10 @@ id mini
 id multiply
 id name
 id nav_alert
+id nav_head_email
 id nav_head_name
-id nav_head_text
+id nav_head_topunit
+id nav_head_unitname
 id nav_logout
 id nav_setting
 id nav_unit_info
@@ -1233,7 +1235,6 @@ layout abc_search_view
 layout abc_select_dialog_material
 layout activity_add_unit
 layout activity_alert
-layout activity_carpool_list_ativity
 layout activity_carpool_make
 layout activity_intro
 layout activity_login
@@ -1247,7 +1248,7 @@ layout app_bar_main
 layout carpool
 layout content_add_unit
 layout content_alert
-layout content_carpool_list_ativity
+layout content_carpool_list
 layout content_main
 layout content_unit_member
 layout design_bottom_navigation_item
@@ -1398,6 +1399,7 @@ string sign_out
 string status_bar_notification_info_overflow
 string str_done
 string title_activity_add_unit
+string title_activity_alert
 string title_activity_carpool_list_ativity
 string title_activity_intro
 string title_activity_login
