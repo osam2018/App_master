@@ -3,6 +3,7 @@ package com.kosam.carpool.activities;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentManager;
 import android.content.Context;
@@ -37,6 +38,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,6 +51,8 @@ import java.util.Date;
 // , OnMapReadyCallback
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     protected static final String TAG = MainActivity.class.getSimpleName();
+
+    public static final int REQUEST_CODE = 1;
 
     private MainActivity.CarpoolTask mCarpoolTask = null;
     private String mURL = "https://kosam-app-server.run.goorm.io/api/carpools/index";
@@ -97,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 Intent gotoMakeCarpool=new Intent(thisActivity,CarpoolMakeActivity.class);
-                startActivity(gotoMakeCarpool);
+                startActivityForResult(gotoMakeCarpool, REQUEST_CODE);
             }
         });
 
@@ -141,6 +145,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mCarpoolTask = new MainActivity.CarpoolTask(this);
         mCarpoolTask.execute(mURL);
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+        if (requestCode == REQUEST_CODE) {
+            if (resultCode == Activity.RESULT_OK) {
+                mCarpoolTask = new MainActivity.CarpoolTask(this);
+                mCarpoolTask.execute(mURL);
+                // do something with the result
+
+            } else if (resultCode == Activity.RESULT_CANCELED) {
+                // some stuff that will happen if there's no result
+            }
+        }
     }
 
 
@@ -233,6 +252,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return super.onOptionsItemSelected(item);
     }
 */
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    // Handle action bar item clicks here. The action bar will
+    // automatically handle clicks on the Home/Up button, so long
+    // as you specify a parent activity in AndroidManifest.xml.
+    int id = item.getItemId();
+
+    switch (id){
+
+        case R.id.action_sign_out:
+            mPreferences.edit().clear().commit();
+            Intent goIntro = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(goIntro);
+            finish();
+
+            return true;
+        case R.id.action_refresh:
+            mCarpoolTask = new MainActivity.CarpoolTask(this);
+            mCarpoolTask.execute(mURL);
+            //mPreferences.edit().clear().commit();
+            //Intent goIntro = new Intent(UnitMemberActivity.this, LoginActivity.class);
+            //startActivity(goIntro);
+            // finish();
+
+            return true;
+        default:
+
+    }
+
+    return super.onOptionsItemSelected(item);
+}
 
     private class CarpoolTask extends UrlJsonAsyncTask {
 
@@ -259,7 +309,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     // add the user email and password to
                     // the params
                     holder.put("auth_token", mPreferences.getString("AuthToken",""));
-                    StringEntity se = new StringEntity(holder.toString());
+                    StringEntity se = new StringEntity(holder.toString(), HTTP.UTF_8);
                     post.setEntity(se);
 
                     // setup the request headers
@@ -286,13 +336,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         @Override
         protected void onPostExecute(JSONObject json) {
             try {
-                Toast.makeText(context, json.toString(), Toast.LENGTH_LONG).show();
                 JSONArray jCarpoolArray = json.getJSONArray("data");
-                Toast.makeText(context, "Test0", Toast.LENGTH_LONG).show();
-
-
-
-
 
                 if(jCarpoolArray != null) {
 
@@ -304,35 +348,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Date start_date = sdf.parse(start_date_str);
                         String start = jobj.getString("start_location");
                         String end = jobj.getString("end_location");
-                        String poster = "test";
+                        String poster = jobj.getString("poster");
                         Integer poster_id = jobj.getInt("poster_id");
                         Integer now_person = jobj.getInt("current_user");
                         Integer max_person = jobj.getInt("max_people");
 
 
-                        Toast.makeText(context, start_date_str+" "+ start+" "+end+" "+poster+" "+poster_id.toString() + " "+ now_person.toString() + " "+ max_person.toString(), Toast.LENGTH_LONG).show();
                         //ListviewItem item = new ListviewItem(start_date, start,end,poster,poster_id, now_person, max_person);
 
                         CarpoolListItem item = new CarpoolListItem(start_date, start,end,poster,poster_id, now_person, max_person);
 
                         adapter.addItem(item);
-                        //Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
-                        //mCarpoolList.add(j_pair);
                     }
 
                     //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
                     listview.setAdapter(adapter);
                 }
                 Toast.makeText(context, json.getString("info"), Toast.LENGTH_LONG).show();
-                Toast.makeText(context, "Test1", Toast.LENGTH_LONG).show();
             } catch (Exception e) {
                 // something went wrong: show a Toast
                 // with the exception message
                 Toast.makeText(context, e.getMessage(), Toast.LENGTH_LONG).show();
-                Toast.makeText(context, "Test2", Toast.LENGTH_LONG).show();
                 showProgress(false);
             } finally {
-                Toast.makeText(context, "Test3", Toast.LENGTH_LONG).show();
                 super.onPostExecute(json);
             }
         }

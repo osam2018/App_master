@@ -29,6 +29,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -243,7 +244,7 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     userObj.put("email", mEmail);
                     userObj.put("password", mPassword);
                     holder.put("user", userObj);
-                    StringEntity se = new StringEntity(holder.toString());
+                    StringEntity se = new StringEntity(holder.toString(), HTTP.UTF_8);
                     post.setEntity(se);
 
                     // setup the request headers
@@ -290,7 +291,6 @@ public class LoginActivity extends AppCompatActivity implements OnClickListener 
                     editor.putBoolean("UsingCar", json.getJSONObject("data").getBoolean("using_car"));
 
                     if (json.getJSONObject("data").getInt("unit_id") == -1) {
-                        editor.putInt("UnitId", -1);
                         editor.apply();
                         Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);
                         startActivity(intent);

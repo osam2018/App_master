@@ -34,6 +34,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 
 
 public class makeUnitActivity extends AppCompatActivity {
-    private String mURL = "https://kosam-app-server.run.goorm.io/api/units";
+    private String mURL = "https://kosam-app-server.run.goorm.io/api/units/create";
     private makeUnitActivity.UnitTask mUnitTask = null;
     private SharedPreferences mPreferences;
 
@@ -250,11 +251,11 @@ public class makeUnitActivity extends AppCompatActivity {
                     json.put("info", "Something went wrong.");
                     // add the user email and password to
                     // the params
-                    unitObj.put("auth_token", mPreferences.getString("AuthToken",""));
-                    unitObj.put("top_unit", mTopUnit);
+                    unitObj.put("top_unit", mPreferences.getString("Group",""));
                     unitObj.put("unit_name", mUnitName);
                     holder.put("unit", unitObj);
-                    StringEntity se = new StringEntity(holder.toString());
+                    holder.put("auth_token",  mPreferences.getString("AuthToken",""));
+                    StringEntity se = new StringEntity(holder.toString(), HTTP.UTF_8);
                     post.setEntity(se);
 
                     // setup the request headers
@@ -297,8 +298,6 @@ public class makeUnitActivity extends AppCompatActivity {
                         editor.putInt("UnitId", -1);
 
                         editor.apply();
-                        Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);
-                        startActivity(intent);
                         finish();
                     } else {
                         editor.putInt("UnitId", json.getJSONObject("data").getInt("unit_id"));

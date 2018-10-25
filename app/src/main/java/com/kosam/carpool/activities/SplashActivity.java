@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         try {
-            Glide.with(this).load(R.drawable.choco).into((ImageView) findViewById(R.id.splash_image));
+            Glide.with(this).load(R.drawable.splash).into((ImageView) findViewById(R.id.splash_image));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -39,18 +39,18 @@ public class SplashActivity extends AppCompatActivity {
                     Intent goLogin = new Intent(SplashActivity.this,LoginActivity.class);
                     startActivity(goLogin);
                     finish();
-                } else {/*
+                } else {
 
                     if (mPreferences.getInt("UnitId",-1) == -1) {
                         Intent intent = new Intent(SplashActivity.this, UnitMemberActivity.class);
                         startActivity(intent);
                         finish();
-                    } else {*/
+                    } else {
                         Intent goMain = new Intent(SplashActivity.this,MainActivity.class);
                         goMain.putExtra("auto",true);
                         startActivity(goMain);
                         finish();
-                   // }
+                    }
 
                 }
 

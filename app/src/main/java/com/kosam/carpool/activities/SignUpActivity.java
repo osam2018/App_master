@@ -32,6 +32,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.protocol.HTTP;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -291,7 +292,7 @@ public class SignUpActivity extends AppCompatActivity {
                     userObj.put("password", mPassword);
                     userObj.put("password_confirmation", mPasswordConfirmation);
                     holder.put("user", userObj);
-                    StringEntity se = new StringEntity(holder.toString());
+                    StringEntity se = new StringEntity(holder.toString(), HTTP.UTF_8);
                     post.setEntity(se);
 
                     // setup the request headers
