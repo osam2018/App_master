@@ -8,8 +8,10 @@ public class ListviewItem {
     private String start;
     private String end;
     private String poster;
+    private  int posterId;
     private int nowPerson;
     private int maxPerson;
+
     public void setStartTime(Date t){
         this.startTime=t;
     }
@@ -19,6 +21,7 @@ public class ListviewItem {
     public void setPoster(String s){
         this.poster=s;
     }
+    public void setPosterId(int pid){this.posterId=pid;}
     public  void setMaxPerson(int m){
         this.maxPerson=m;
     }
@@ -36,6 +39,7 @@ public class ListviewItem {
     public String getPoster(){
         return this.poster;
     }
+    public int getPosterId(){return this.posterId;}
     public int getNowPerson(){
         return this.nowPerson;
     }
@@ -50,13 +54,18 @@ public class ListviewItem {
         this.poster=null;
         this.nowPerson=0;
         this.maxPerson=0;
+        this.posterId=0;
     }
-    public  ListviewItem(Date d,String s,String e,String p,int n,int m){
+    private  ListviewItem(Date d,String s,String e,String p,int n,int m){
         this.startTime=d;
         this.start=s;
         this.end=e;
         this.poster=p;
         this.nowPerson=n;
         this.maxPerson=m;
+    }
+    public  ListviewItem(Date d,String s,String e,String p,int pid,int n,int m){
+        this(d,s,e,p,n,m);
+        this.posterId=pid;
     }
 }

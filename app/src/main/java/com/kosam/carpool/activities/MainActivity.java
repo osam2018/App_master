@@ -96,6 +96,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
         NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
         NavUserEmail.setText(mPreferences.getString("Email",""));
+
+        //카풀 리스트뷰 연결
+
     }
 
 
