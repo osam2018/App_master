@@ -117,8 +117,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView.setNavigationItemSelectedListener(this);
         navigationView.bringToFront();
 
-        Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
-/*
+        //Log.e("Test", mPreferences.getString("Name","ROCA") + ", " + mPreferences.getString("TopUnit","육군") + ", " + mPreferences.getString("UnitName","국방부"));
+
         //navigation header 설정
         NavUserName = (TextView) findViewById(R.id.nav_head_name);
         NavUserTopUnit = (TextView) findViewById(R.id.nav_head_topunit);
@@ -128,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavUserTopUnit.setText(mPreferences.getString("TopUnit","육군"));
         NavUserUnitName.setText(mPreferences.getString("UnitName","국방부"));
         NavUserEmail.setText(mPreferences.getString("Email",""));
-*/
+
         //카풀 리스트뷰 연결
 
     }
@@ -191,7 +191,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
+/*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -223,7 +223,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         return super.onOptionsItemSelected(item);
     }
-
+*/
 
     private class CarpoolTask extends UrlJsonAsyncTask {
 

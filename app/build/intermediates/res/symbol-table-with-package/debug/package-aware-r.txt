@@ -978,9 +978,11 @@ id buttonPanel
 id cancel_action
 id carpool_end
 id carpool_list
+id carpool_list_view
 id carpool_make_fab
 id carpool_max
 id carpool_poster
+id carpool_progress
 id carpool_start
 id carpool_start_time
 id center
@@ -1071,6 +1073,7 @@ id mini
 id multiply
 id name
 id nav_alert
+id nav_chat
 id nav_head_email
 id nav_head_name
 id nav_head_topunit
@@ -1078,6 +1081,7 @@ id nav_head_unitname
 id nav_logout
 id nav_setting
 id nav_unit_info
+id nav_unit_list
 id nav_view
 id navigation_header_container
 id never
@@ -1375,10 +1379,13 @@ string label_unitcategory
 string label_unitname
 string lvItem_end
 string lvItem_start
+string make_carpool_title
 string menu_alert
+string menu_chat
 string menu_logout
 string menu_setting
 string menu_unit_info
+string menu_unit_list
 string nav_head_text
 string navigation_drawer_close
 string navigation_drawer_open

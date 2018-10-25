@@ -31,6 +31,7 @@ public class CarpoolMakeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_carpool_make);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        toolbar.setTitle(R.string.make_carpool_title);
 
         mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
 
