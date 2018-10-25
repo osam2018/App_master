@@ -1,13 +1,18 @@
 package com.kosam.carpool.activities;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Toast;
 
@@ -20,12 +25,24 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class UnitMemberActivity extends AppCompatActivity {
+    List<Pair> mUnitList = new ArrayList<Pair>();
+    private UnitMemberActivity.UnitTask mUnitTask = null;
+    private SharedPreferences mPreferences;
+    private String mURL = "https://kosam-app-server.run.goorm.io/api/units/show";
+
+    private View mProgressView;
+    private View mUnitListView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +50,14 @@ public class UnitMemberActivity extends AppCompatActivity {
         setContentView(R.layout.activity_unit_member);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mUnitListView = findViewById(R.id.unit_list_view);
+        mProgressView = findViewById(R.id.unit_progress);
+
+        mPreferences = getSharedPreferences("CurrentUser", MODE_PRIVATE);
+
+        mUnitTask = new UnitMemberActivity.UnitTask(this);
+        mUnitTask.execute(mURL);
 
         FloatingActionButton makeUnitBtn = (FloatingActionButton) findViewById(R.id.unit_make);
         final Intent i=new Intent(this,makeUnitActivity.class);
@@ -43,29 +68,12 @@ public class UnitMemberActivity extends AppCompatActivity {
             }
         });
     }
-/*
-    private class SignUpTask extends UrlJsonAsyncTask {
 
-        private final String mEmail;
-        private final String mName;
-        private final String mGroup;
-        private final String mRank;
-        private final String mPhone;
-        private final Boolean mUsingCar;
-        private final String mPassword;
-        private final String mPasswordConfirmation;
+    private class UnitTask extends UrlJsonAsyncTask {
 
-        public SignUpTask(Context context, String email, String  name, String group, String  rank, String  phone, Boolean using_car, String password, String passwordConfirm) {
+
+        public UnitTask(Context context) {
             super(context);
-
-            mEmail = email;
-            mName = name;
-            mGroup = group;
-            mRank = rank;
-            mPhone = phone;
-            mUsingCar = using_car;
-            mPassword = password;
-            mPasswordConfirmation = passwordConfirm;
         }
 
         @Override
@@ -74,7 +82,7 @@ public class UnitMemberActivity extends AppCompatActivity {
             DefaultHttpClient client = new DefaultHttpClient();
             HttpPost post = new HttpPost(urls[0]);
             JSONObject holder = new JSONObject();
-            JSONObject userObj = new JSONObject();
+            JSONObject unitObj = new JSONObject();
             String response = null;
             JSONObject json = new JSONObject();
 
@@ -86,15 +94,8 @@ public class UnitMemberActivity extends AppCompatActivity {
                     json.put("info", "Something went wrong.");
                     // add the user email and password to
                     // the params
-                    userObj.put("email", mEmail);
-                    userObj.put("name", mName);
-                    userObj.put("group", mGroup);
-                    userObj.put("rank", mRank);
-                    userObj.put("phone", mPhone);
-                    userObj.put("using_car", mUsingCar);
-                    userObj.put("password", mPassword);
-                    userObj.put("password_confirmation", mPasswordConfirmation);
-                    holder.put("user", userObj);
+                    unitObj.put("auth_token", mPreferences.getString("AuthToken",""));
+                    holder.put("unit", unitObj);
                     StringEntity se = new StringEntity(holder.toString());
                     post.setEntity(se);
 
@@ -130,30 +131,22 @@ public class UnitMemberActivity extends AppCompatActivity {
                 if (json.getBoolean("success")) {
                     // everything is ok
 
-                    SharedPreferences.Editor editor = mPreferences.edit();
+                    //SharedPreferences.Editor editor = mPreferences.edit();
                     // save the returned auth_token into
                     // the SharedPreferences
-                    editor.putString("AuthToken", json.getJSONObject("data").getString("auth_token"));
-                    editor.putString("Email", json.getJSONObject("data").getJSONObject("user").getString("email"));
-                    editor.putString("Name", json.getJSONObject("data").getJSONObject("user").getString("name"));
-                    editor.putString("Group", json.getJSONObject("data").getJSONObject("user").getString("group"));
-                    editor.putString("Rank", json.getJSONObject("data").getJSONObject("user").getString("rank"));
-                    editor.putString("Phone", json.getJSONObject("data").getJSONObject("user").getString("phone"));
-                    editor.putString("UsingCar", json.getJSONObject("data").getJSONObject("user").getString("using_car"));
+                    JSONArray jUnitArray = json.getJSONObject("data").getJSONArray("unit");
+                    if(jUnitArray != null) {
 
-                    if (json.getJSONObject("data").getJSONObject("user").isNull("unit_id")) {
-                        editor.putInt("UnitId", -1);
-                        editor.apply();
-                        Intent intent = new Intent(getApplicationContext(), UnitMemberActivity.class);
-                        startActivity(intent);
-                        finish();
-                    } else {
-                        editor.putInt("UnitId", json.getJSONObject("data").getJSONObject("user").getInt("unit_id"));
-                        editor.apply();
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                        startActivity(intent);
-                        finish();
+                        for(int i = 0; i <jUnitArray.length(); i++) {
+                            JSONObject jobj = jUnitArray.getJSONObject(i);
+                            Pair j_pair = new Pair(jobj.getInt("id"), jobj.getString("unit_name"));
+                            mUnitList.add(j_pair);
+                        }
+
+                        //여기서부터 mUnitList를 이용하여 List에 자료 넣기 코드 넣기
+
                     }
+
 
                 } else {
                     showProgress(false);
@@ -171,10 +164,43 @@ public class UnitMemberActivity extends AppCompatActivity {
 
         @Override
         protected void onCancelled() {
-            mAuthTask = null;
+            mUnitTask = null;
             showProgress(false);
         }
 
     }
-*/
+
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
+    private void showProgress(final boolean show) {
+        // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
+        // for very easy animations. If available, use these APIs to fade-in
+        // the progress spinner.
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR2) {
+            int shortAnimTime = getResources().getInteger(android.R.integer.config_shortAnimTime);
+
+            mUnitListView.setVisibility(show ? View.GONE : View.VISIBLE);
+            mUnitListView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 0 : 1).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mUnitListView.setVisibility(show ? View.GONE : View.VISIBLE);
+                }
+            });
+
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mProgressView.animate().setDuration(shortAnimTime).alpha(
+                    show ? 1 : 0).setListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+                }
+            });
+        } else {
+            // The ViewPropertyAnimator APIs are not available, so simply show
+            // and hide the relevant UI components.
+            mProgressView.setVisibility(show ? View.VISIBLE : View.GONE);
+            mUnitListView.setVisibility(show ? View.GONE : View.VISIBLE);
+        }
+    }
+
 }
