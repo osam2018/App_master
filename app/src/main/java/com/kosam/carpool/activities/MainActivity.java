@@ -302,8 +302,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         String start_date_str = jobj.getString("start_time");
                         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                         Date start_date = sdf.parse(start_date_str);
-                        String start = jobj.getString("start");
-                        String end = jobj.getString("end");
+                        String start = jobj.getString("start_location");
+                        String end = jobj.getString("end_location");
                         String poster = "test";
                         Integer poster_id = jobj.getInt("poster_id");
                         Integer now_person = jobj.getInt("current_user");
