@@ -36,6 +36,23 @@
                         "endColumns": "184",
                         "endOffsets": "1415"
                     }
+                },
+                {
+                    "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-17.3.4.aar\\d7b788cff1f8b365246743fb74cbf8c8\\res\\values-as\\values.xml",
+                    "from": {
+                        "startLines": "4",
+                        "startColumns": "0",
+                        "startOffsets": "205",
+                        "endColumns": "99",
+                        "endOffsets": "304"
+                    },
+                    "to": {
+                        "startLines": "20",
+                        "startColumns": "4",
+                        "startOffsets": "2714",
+                        "endColumns": "103",
+                        "endOffsets": "2813"
+                    }
                 }
             ]
         }

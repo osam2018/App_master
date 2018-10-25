@@ -1276,12 +1276,12 @@
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\017d9ed957517303fc047bc6cab695a6\\res\\drawable-mdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
     },
     {
-        "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\017d9ed957517303fc047bc6cab695a6\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\layout_alert.xml.flat",
         "source": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\src\\main\\res\\layout\\alert.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\017d9ed957517303fc047bc6cab695a6\\res\\drawable-xxhdpi-v4\\abc_ic_menu_paste_mtrl_am_alpha.png"
     },
     {
         "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\color-v11_abc_background_cache_hint_selector_material_light.xml.flat",
@@ -1640,12 +1640,12 @@
         "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\017d9ed957517303fc047bc6cab695a6\\res\\drawable-xxhdpi-v4\\abc_ic_menu_share_mtrl_alpha.png"
     },
     {
-        "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
-        "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\017d9ed957517303fc047bc6cab695a6\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
-    },
-    {
         "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\layout_content_alert.xml.flat",
         "source": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\src\\main\\res\\layout\\content_alert.xml"
+    },
+    {
+        "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-hdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
+        "source": "C:\\Users\\USER\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\017d9ed957517303fc047bc6cab695a6\\res\\drawable-ldrtl-hdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
         "merged": "C:\\Users\\USER\\Desktop\\carpool2\\carpool\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_text_select_handle_middle_mtrl_dark.png.flat",

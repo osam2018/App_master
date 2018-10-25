@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "451716761401",
+    "firebase_url": "https://kosam-carpool.firebaseio.com",
+    "project_id": "kosam-carpool",
+    "storage_bucket": "kosam-carpool.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:451716761401:android:66a3b519340df06d",
+        "android_client_info": {
+          "package_name": "com.kosam.carpool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "451716761401-gd5g3102vj326p3icqm3nrtmn9cu4s54.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kosam.carpool",
+            "certificate_hash": "a82db9a0ca1e642d3833eefe47258646744837c2"
+          }
+        },
+        {
+          "client_id": "451716761401-u6uk9tqfkl4oup5o9r726j85uvpeoi3f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCibj2EUMCWvWxK5kJyqRMGGbaMpVRKVRY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "451716761401-u6uk9tqfkl4oup5o9r726j85uvpeoi3f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
